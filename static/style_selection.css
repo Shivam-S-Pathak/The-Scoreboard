@@ -1,0 +1,176 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  background-image: url('image.jpg');
+  backdrop-filter: blur(5px);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.one {
+  position: absolute;
+  top: 0;
+  left: 38%;
+  background-color: rgb(221, 157, 60);
+  /* display: inline; */
+  width: 175px;
+  height: 130px;
+  border-radius: 0 0 87.5px 87.5px;
+}
+
+.two {
+  position: absolute;
+  top: 0;
+  left: 52%;
+  background-color: rgb(221, 157, 60);
+  /* display: inline; */
+  width: 225px;
+  height: 300px;
+  border-radius: 0 0 112.5px 112.5px;
+}
+
+.three {
+  position: absolute;
+  top: 0;
+  left: 70%;
+  background-color: rgb(221, 157, 60);
+  width: 240px;
+  height: 460px;
+  border-radius: 0 0 130px 130px;
+}
+
+.sub {
+  position: absolute;
+  top: 6%;
+  left: 2%;
+  /* display: flex; */
+  height: 500px;
+  width: 90%;
+  padding: 50px;
+  background-color: rgb(32, 29, 132);
+}
+
+.main {
+  position: absolute;
+  top: 15%;
+  left: 10%;
+  background-color: rgb(221, 157, 60, 0.6);
+  backdrop-filter: blur(40px);
+  width: 1500px;
+  height: 700px;
+  border-radius: 25px;
+
+
+}
+
+#ca {
+  color: rgb(32, 29, 132);
+  font-size: 180%;
+  position: absolute;
+  top: 34%;
+  left: 20%;
+
+}
+
+#sem {
+
+  color: rgb(32, 29, 132);
+  font-size: 180%;
+  position: absolute;
+  top: 65%;
+  left: 43px;
+}
+
+#exam {
+  color: rgb(32, 29, 132);
+  font-size: 180%;
+  position: absolute;
+  top: 85%;
+  left: 35%;
+}
+
+input {
+  height: 10%;
+  width: 35%;
+}
+
+.caurse {
+  font-size:200%;
+  border-width: 0;
+  position: absolute;
+  top: 28%;
+  left: 13%;
+  height: 9%;
+  width: 35%;
+}
+
+.sem {
+  font-size: 200%;
+  border-width: 0;
+  position: absolute;
+  top: 57%;
+  left: 29%;
+  height: 9%;
+  width: 35%;
+
+}
+
+.exam {
+  font-size: 200%;
+  border-width: 0;
+  position: absolute;
+  top: 82.5%;
+  left: 47%;
+  height: 9%;
+  width: 35%;
+}
+
+span1 {
+  position: absolute;
+  top: 23%;
+  left: 43%;
+  border-bottom: 30px solid #fff;
+  border-right: 25px solid transparent;
+  border-left: 25px solid transparent;
+}
+
+span2 {
+  position: absolute;
+  top: 52.1%;
+  left: 59%;
+  border-bottom: 30px solid #fff;
+  border-right: 25px solid transparent;
+  border-left: 25px solid transparent;
+}
+
+span3 {
+  position: absolute;
+  top: 78%;
+  left: 77%;
+  border-bottom: 30px solid #fff;
+  border-right: 25px solid transparent;
+  border-left: 25px solid transparent;
+}
+
+.btn {
+  position: absolute;
+  font-size: 250%;
+  font-family: comic Sans MS, serif;
+  font-weight: bold;
+  top: 88%;
+  width: 200px;
+  height: 60px;
+  border-radius: 30px;
+  background-color: rgb(221, 157, 60);
+  color: rgb(32, 29, 132);
+}
+
+.btn:active {
+  border-color: rgb(221, 157, 60);
+  border-width: thick;
+  color: rgb(221, 157, 60);
+  background-color: rgb(32, 29, 132);
+
+}

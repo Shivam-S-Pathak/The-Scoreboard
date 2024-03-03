@@ -1,0 +1,181 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    background-image: url('image.jpg');
+    backdrop-filter: blur(5px);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+.masin-container {
+    position: absolute;
+    top: 20%;
+    left: 29%;
+    height: 700px;
+    width: 800px;
+    background-color: rgb(221, 157, 60, 0.6);
+    backdrop-filter: blur(40px);
+    border-radius: 3cap;
+}
+
+.input {
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    height: 400px;
+    width: 500px;
+    background-color: rgb(32, 29, 132);
+    margin-left: 2%;
+    margin-right: 3%;
+    padding: 5%;
+    animation: morphTransition 0.2s ease-in-out forwards;
+
+}
+
+@keyframes morphTransition {
+    from {
+        transform: scale(0);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+
+a {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    text-decoration: none;
+    color: rgb(221, 157, 60);
+    font-size: larger;
+
+
+}
+
+.title1 {
+
+    position: absolute;
+    top: 8%;
+    left: 12%;
+    padding: 3%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 35px;
+    color: rgb(221, 157, 60);
+    background-color: rgb(32, 29, 132);
+    border-radius: 17px 50px 0 0;
+    animation: morphTransition 0.2s ease-in-out forwards;
+
+}
+
+@keyframes morphTransition {
+    from {
+        transform: scale(0);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+
+.title2 {
+    position: absolute;
+    top: 8%;
+    left: 50.7%;
+    padding: 3%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 35px;
+    color: rgb(32, 29, 132);
+}
+
+
+.btn {
+    position: absolute;
+    font-size: 200%;
+    font-family: comic Sans MS, serif;
+    font-weight: bold;
+    top: 80%;
+    /* left:%; */
+    width: 510px;
+    height: 60px;
+    border-radius: 20px;
+    background-color: rgb(221, 157, 60);
+    color: rgb(32, 29, 132);
+}
+
+.btn:active {
+    border-color: rgb(221, 157, 60);
+    border-width: thick;
+    color: rgb(221, 157, 60);
+    background-color: rgb(32, 29, 132);
+
+}
+
+input[type="text"] {
+    position: absolute;
+    top: 23%;
+    font-size: 200%;
+    border-width: 0;
+    width: 500px;
+    height: 80px;
+
+}
+
+input[type="password"] {
+    position: absolute;
+    top: 55%;
+    font-size: 200%;
+    border-width: 0;
+    width: 500px;
+    height: 80px;
+}
+
+.Enrollment {
+    position: absolute;
+    top: 10%;
+    left: 45%;
+    font-size: 220%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: aliceblue;
+
+}
+
+.password {
+    position: absolute;
+    top: 42%;
+    left: 70%;
+    font-size: 220%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: aliceblue;
+}
+
+span1 {
+    position: absolute;
+    top: 18%;
+    left: 83%;
+    border-bottom: 30px solid #fff;
+    border-right: 25px solid transparent;
+    border-left: 25px solid transparent;
+}
+
+span2 {
+    position: absolute;
+    top: 50%;
+    left: 83%;
+    border-bottom: 30px solid #fff;
+    border-right: 25px solid transparent;
+    border-left: 25px solid transparent;
+}
+
+.Forgot-password {
+    color: rgb(32, 29, 132);
+    position: absolute;
+    top: 102%;
+    left: 56%;
+    font-size: 180%;
+    text-decoration: underline;
+}

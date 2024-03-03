@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="static\style_selection.css">
+
+</head>
+
+<body>
+  <div class="main">
+
+    <section class="sub">
+      <form action="" method="post">
+        {% csrf_token %}
+        <span1></span1>
+        <select name="course" id="" class="caurse" required>
+          <option value="">---Select your course---</option>
+          <option value="B.Tech">B.Tech</option>
+          <option value="B.E.">B.E.</option>
+          <option value="B.Sc">B.Sc</option>
+          <option value="B.com">B.com</option>
+        </select>
+        <div class="one">
+          <h2 id="ca">COURSE</h2>
+        </div>
+        <span2></span2>
+        <select id="" class="sem" name="semester" required>
+          <option value="">---Select Semester---</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+        </select>
+        <div class="two">
+          <h2 id="sem">SEMESTER</h2>
+        </div>
+        <span3></span3>
+        <select class="exam" name="exam" id="" required>
+          <option value="">---Select Exam type---</option>
+          <option value="mst-1">MST-1</option>
+          <option value="mst-2">MST-2</option>
+          <option value="final">Final</option>
+        </select>
+        <div class="three">
+          <h2 id="exam">EXAM</h2>
+        </div>
+        <button type="submit" class="btn">
+          Submit
+        </button>
+      </form>
+    </section>
+  </div>
+</body>
+
+</html>
