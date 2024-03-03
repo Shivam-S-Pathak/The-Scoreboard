@@ -28,7 +28,7 @@ def index(request):
         
 
 def teachers_login(request):
-        if request.method=="POST":
+         if request.method=="POST":
              username = request.POST.get('username')
              password = request.POST.get('password')
              user= authenticate(username = username, password= password)
@@ -39,8 +39,8 @@ def teachers_login(request):
 
              else:
                 messages.success(request, "!!!! username or password is invalid !!!!!")
-                return redirect("teachers_login")   
-        else:
+                return render(request, 'teachers_login.html')   
+         else:
             return render(request, 'teachers_login.html')
 @login_required
 def selection(request):
