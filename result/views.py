@@ -28,7 +28,6 @@ def index(request):
         
 
 def teachers_login(request):
-
         if request.method=="POST":
              username = request.POST.get('username')
              password = request.POST.get('password')
