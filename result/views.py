@@ -1,4 +1,5 @@
 from django.contrib import messages
+from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.db import IntegrityError
 from django.shortcuts import render,redirect
@@ -42,25 +43,45 @@ def teachers_login(request):
                 return render(request, 'teachers_login.html')   
          else:
             return render(request, 'teachers_login.html')
+         
+
 @login_required
 def selection(request):
      if request.method=="POST":
-          return redirect("dataview_page")
+          Course=request.POST.get('course')
+          examType=request.POST.get('exam_type')
+          sem=request.POST.get('semester')
+          enrollment= request.user.username
+
+          if Result.objects.filter(course_id=Course , exam=examType, semester=sem , enrollment_no=enrollment).exists():
+              results=Result.objects.filter(course_id=Course , exam=examType, semester=sem , enrollment_no=enrollment)
+              context={'results':results}
+
+              return render(request, 'dataview.html', context)
+          else:
+               return HttpResponse("course or semster or exam does not exist")
      else:
           return render(request, 'selection_page.html')
+     
+
 @login_required    
 def dataview(request):
-          data=examResult.objects.all()
-          return render(request, 'dataview.html', {'data' :data})
+          return render(request, 'dataview.html')
+
+
 
 def logoutuser(request):
       logout(request)
       return redirect("/")
 
+
+
 def verify(request):
      if request.method=="POST":
           return redirect("generate_password")
      return render(request, 'verify_user.html')
+
+
 
 def forgot(request):
      return render(request, 'forgot.html')

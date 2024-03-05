@@ -174,3 +174,14 @@ span3 {
   background-color: rgb(32, 29, 132);
 
 }
+
+a {
+  position: absolute;
+  left: 90%;
+  text-decoration: none;
+  background-color: rgb(240, 49, 49);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+
+}

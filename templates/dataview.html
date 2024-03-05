@@ -7,29 +7,196 @@
     <title>DataView Page</title>
     <style>
         a {
-            text-decoration: solid;
+            position: absolute;
+            left: 90%;
+            text-decoration: none;
             background-color: rgb(240, 49, 49);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+
         }
-        h1{
+
+        h1 {
+            color: aliceblue;
+            background-color: rgb(38, 48, 156);
+            font-size: 200%;
             display: flex;
             justify-content: center;
             align-items: center;
+        }
+
+        h2 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        table {
+            font-size: larger;
+        }
+
+        .table1 {
+            border: 2px solid #000;
+            /* border color and width */
+            border-collapse: collapse;
+        }
+
+        .table1 th,
+        .table1 td {
+            border: 1px solid #000;
+            /* border color and width */
+            padding: 20px;
+            /* spacing between cell content and border */
+        }
+
+        .table1 th {
+            background-color: #f2f2f2;
+            /* background color for header cells */
+        }
+
+
+        .table3 {
+            border: 2px solid #000;
+            /* border color and width */
+            border-collapse: collapse;
+        }
+
+        .table3 th,
+        .table3 td {
+            border: 1px solid #000;
+            /* border color and width */
+            padding: 10px;
+            /* spacing between cell content and border */
+            width: 410px;
+        }
+
+        .table3 th {
+            background-color: #f2f2f2;
+            /* background color for header cells */
+        }
+
+        .table2 {
+            border: 2px solid #000;
+            /* border color and width */
+            border-collapse: collapse;
+        }
+
+        .table2 th,
+        .table2 td {
+            border: 1px solid #000;
+            /* border color and width */
+            padding: 10px;
+            /* spacing between cell content and border */
+            width: 266px;
+            /* width of table cells */
+            height: 50px;
+            /* height of table cells */
+        }
+
+        .table2 th {
+            background-color: #f2f2f2;
+            /* background color for header cells */
         }
     </style>
 </head>
 
 <body>
-    <div>   
-       <h1>Page is under construtions</h1>
-        <h1>Data from Database</h1>
-        <ul>
-            {% for item in data %}
-            <li>{{ item}}</li>
+    <div>
+        <h1>Page is under construction&nbsp;
+            <a href="/logout">Logout</a>
+        </h1>
+        <h2>Results</h2>
+        <table cellspacing="30" class="table1">
+            <tbody>
+                {% for result in results %}
+                <tr>
+                    <th>Student Name&nbsp;&nbsp;</th>
+                    <td>{{ result.student_name }}</td>
+                    <th>Enrollment Number&nbsp;&nbsp;</th>
+                    <td>{{ result.enrollment_no }}</td>
+                </tr>
+                <tr>
+                    <th>Course&nbsp;&nbsp;</th>
+                    <td>{{ result.course_name }}</td>
 
-            {% endfor %}
-        </ul>
+                    <th>Branch&nbsp;&nbsp;</th>
+                    <td>{{ result.Branch}}</td>
+                </tr>
+                <tr>
+                    <th>Semester&nbsp;&nbsp;</th>
+                    <td>{{ result.semester}}</td>
+                    <th>Mobile number&nbsp;&nbsp;</th>
+                    <td>{{ result.mobile}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+
+        <table cellspacing="20" class="table2"><br>
+            <thead>
+                <tr>
+                    <th>Subject&nbsp;</th>
+                    <th>Marks&nbsp;</th>
+                    <th>Pdf&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for result in results %}
+                <tr>
+
+                    <td>{{ result.subject1}}</td>
+                    <td>{{ result.marks1}}</td>
+
+                </tr>
+                </tr>
+                <td>{{ result.subject2}}</td>
+                <td>{{ result.marks2}}</td>
+
+                </tr>
+                </tr>
+                <td>{{ result.subject3}}</td>
+                <td>{{ result.marks3}}</td>
+
+                </tr>
+                </tr>
+                <td>{{ result.subject4}}</td>
+                <td>{{ result.marks4}}</td>
+                </tr>
+
+                </tr>
+
+                <td>{{ result.subject5}}</td>
+                <td>{{ result.marks5}}</td>
+
+                </tr>
+
+
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <table cellspacing="20" class="table3"><br>
+            <thead>
+                <tr>
+                    <th>TOTAL&nbsp;&nbsp;</th>
+                    <th>FINAL VERDICT &nbsp;&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for result in results %}
+                <tr>
+                    <td>{{ result.Total }}</td>
+                    <td>{{ result.res }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+
     </div>
-    <a href='logout'>Logout</a>
+
 </body>
 
 </html>
