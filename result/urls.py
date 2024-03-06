@@ -8,5 +8,7 @@ urlpatterns = [
     path('dataview_page', dataview , name='dataview_page'),
     path('logout' , logoutuser, name='logout_page'),
     path('Verify-user', verify ,name='forgot_password'),
-    path('generate_password', forgot, name="generate_password")
+    path('generate_password', forgot, name="generate_password"),
+    path('inputdata' ,datainput, name='data_input'),
+    path('successfull', success , name='successfull')
 ]
