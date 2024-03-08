@@ -11,8 +11,14 @@
 
 <body>
   <a href="/logout">Logout</a>
+  {% if messages %}
+          <div class="error_message">
+              {% for message in messages %}
+              {{ message }}
+              {% endfor %}
+          </div>
+          {% endif %}
   <div class="main">
-
     <section class="sub">
       <form action="" method="post">
         {% csrf_token %}

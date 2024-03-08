@@ -1,10 +1,8 @@
 from django.contrib import admin
-from result.models import *
+from result.models import Result
 
 # Register your models here.
 
-# admin.site.register(Student),
-# admin.site.register(Course),
-# admin.site.register(Exam),
-admin.site.register(Result),
+admin.site.register(Result)
+
 

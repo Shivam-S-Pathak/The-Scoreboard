@@ -1,0 +1,28 @@
+
+         .logout{
+            position: absolute;
+            left: 90%;
+            text-decoration: none;
+            background-color: rgb(240, 49, 49);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+
+        }
+
+        .new_teacher{
+            position: absolute;
+            text-decoration: none;
+            background-color: rgb(240, 49, 49);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .error_message {
+    color: rgb(248, 2, 6);
+    position: absolute;
+    top: 0%;
+    left: 30%;
+    font-size: 300%;
+    text-decoration: underline;
+}

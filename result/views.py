@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.db import IntegrityError
 from django.shortcuts import render,redirect
 from django.contrib.auth import login,authenticate,logout
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User,Group
 from result.models import *
 from result.forms import *
 
@@ -13,16 +13,19 @@ from result.forms import *
 
 def index(request):
         if request.method=="POST":
+             #takes the input by user and it following variables
              username = request.POST.get('username')
              password = request.POST.get('password')
+             #here is authenticate the username anad password
              user= authenticate(username = username, password= password)
-             if user is not None:
+             # it checks wheather the enter creadentials are from student group or not 
+             if user is not None and user.groups.filter(name='Students').exists():
                login(request, user)
-               messages.success(request, "!!!! you are loged in successfully !!!!!")
                return redirect("selection_page")
 
              else:
                 messages.success(request, "!!!! username or password is invalid !!!!!")
+                print(messages.get_messages(request))
                 return render(request, 'index.html')  
         else:
             return render(request, 'index.html')
@@ -33,9 +36,8 @@ def teachers_login(request):
              username = request.POST.get('username')
              password = request.POST.get('password')
              user= authenticate(username = username, password= password)
-             if user is not None:
+             if user is not None and user.groups.filter(name='Teachers').exists():
                 login(request, user)
-                messages.success(request, "!!!! you are loged in successfully !!!!!")
                 return redirect("/inputdata")
 
              else:
@@ -71,7 +73,7 @@ def datainput(request):
                # pdf_files5=request.FILES.get('pdf_file5')
                totaling=request.POST.get('total')
                result=request.POST.get('result')
-               contact=request.POST.get('mobile')
+               email=request.user.email
                content=Result(student_name=Name , enrollment_no=Enrollment ,
                                course_id= C_id , course_name=C_name , Branch=branch , 
                                semester=Sem , exam=exam_type , subject1=Sub1 , marks1=M1 ,
@@ -84,9 +86,10 @@ def datainput(request):
                               #    pdf4=pdf_files4 ,
                                  subject5=Sub5 , marks5=M5 , 
                               #  pdf5=pdf_files5 ,
-                               Total=totaling , res=result, mobile=contact)
+                               Total=totaling , res=result , email=email )
                content.save()
-               return redirect("/successfull")
+               messages.success(request, "!!!! Data uploaded successfully !!!!!")
+               return render(request, 'input_data.html')
           else:
                return render(request, 'input_data.html')
 
@@ -104,7 +107,8 @@ def selection(request):
 
               return render(request, 'dataview.html', context)
           else:
-               return HttpResponse("course or semster or exam does not exist")
+                messages.success(request, "!!!! course or semster or exam_type does not exist !!!!!")
+                return render(request, 'selection_page.html')
      else:
           return render(request, 'selection_page.html')
      
@@ -127,9 +131,67 @@ def verify(request):
      return render(request, 'verify_user.html')
 
 
-
 def forgot(request):
      return render(request, 'forgot.html')
 
-def success(request):
-     return render(request, 'successfull.html')
+def signup_teachers(request):
+     try:
+         if request.method=='POST':
+             # take input from the form and store it following variables
+             username=request.POST.get('username')
+             first=request.POST.get('first')
+             last=request.POST.get('last')
+             mail=request.POST.get('email')
+             password=request.POST.get('password')
+             confirm_password=request.POST.get('confirm_password')
+             group_name=request.POST.get('user_type')
+             #checks if the email provided is already exist in the database
+             if User.objects.filter(email=mail).exists():
+               return render(request, 'signup_teachers.html', {'error_message': 'Email is already in use'})
+             
+             if User.objects.filter(username=username).exists():
+               return render(request, 'signup_teachers.html', {'error_message': 'username is already in use'})
+             # checks if password and confirm password is diffrent or same
+             if password != confirm_password:
+                return render(request, 'signup_teachers.html', {'error_message': 'Passwords do not match'})
+               # create and save a new user in the database
+             user = User.objects.create_user(username=username, email=mail, password=password , first_name=first , last_name=last)
+             
+             # Add the user to the specified group
+             group = Group.objects.get(name=group_name)
+             user.groups.add(group)
+             return redirect("/teachers_login")
+     except:
+          return HttpResponse("Something went wrong try again")
+
+     return render(request, 'signup_teachers.html')
+
+
+def signup_students(request):
+     try:
+          if request.method=='POST':
+             username=request.POST.get('username')
+             first=request.POST.get('first')
+             last=request.POST.get('last')
+             mail=request.POST.get('email')
+             password=request.POST.get('password')
+             confirm_password=request.POST.get('confirm_password')
+             group_name=request.POST.get('user_type')
+        
+             if User.objects.filter(email=mail).exists():
+                 return render(request, 'signup_students.html', {'error_message': 'Email is already in use'})
+            
+             if User.objects.filter(username=username).exists():
+                 return render(request, 'signup_teachers.html', {'error_message': 'username is already in use'})
+            
+             if password != confirm_password:
+               return render(request, 'signup_students.html', {'error_message': 'Passwords do not match'})
+              
+             user = User.objects.create_user(username=username, email=mail, password=password , first_name=first , last_name=last)
+             group = Group.objects.get(name=group_name)
+             user.groups.add(group)
+             return redirect("/")
+     except:
+          return HttpResponse("Something went wrong try again")
+
+     return render(request, 'signup_students.html')

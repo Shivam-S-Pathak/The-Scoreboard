@@ -6,26 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fill result data</title>
-    <style>
-         a {
-            position: absolute;
-            left: 90%;
-            text-decoration: none;
-            background-color: rgb(240, 49, 49);
-            color: white;
-            padding: 5px 10px;
-            border-radius: 5px;
-
-        }
-    </style>
+    <link rel="stylesheet" href="static\css_input_data.css">
 </head>
 
 <body>
     <form method="post" action=" ">
         {% csrf_token %}
+        
+        {% if messages %}
+    <div class="error_message">
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+    </div>
+{% endif %}
         <div class="container">
-            
-            <a href="/logout">Logout</a>
+            <a href="/signupteachers" class="new_teaacher">signup new teacher</a><br><br>
+            <a href="/logout" class="logout">Logout</a>
             Student Name: <input type="text" name="Name" id="Name" required><br>
             <br>
             Enrollment number: <input type="text" name="Enrollment" id="Enrollment_no" required> <br>
@@ -102,7 +99,6 @@
             <br>
             result verdict: <input type="text" name="result" id="result" placeholder="PASS or FAIL" required><br>
             <br>
-            Mobile number: <input type="text" name="mobile" id="mobile" required>
             <hr>
             <button type="submit">Submit</button>
         </div>
