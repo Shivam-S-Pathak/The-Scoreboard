@@ -140,3 +140,12 @@ STATICFILES_DIRS = [
 MESSAGE_TAGS = {
     'auto_hide': {'duration': 3}  # Set duration to 3 seconds
 }
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True  
+EMAIL_HOST_USER = 'noreply.result.mail@gmail.com'
+EMAIL_HOST_PASSWORD = 'xjhb sdgx oyay widq'
+EMAIL_DEBUG = True

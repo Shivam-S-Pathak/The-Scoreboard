@@ -7,9 +7,10 @@ urlpatterns = [
     path('selection_page' , selection , name='selection_page'),
     path('dataview_page', dataview , name='dataview_page'),
     path('logout' , logoutuser, name='logout_page'),
-    path('Verify-user', verify ,name='forgot_password'),
-    path('generate_password', forgot, name="generate_password"),
+    path('verify_user', verify_email ,name='verify'),
+    path('reset-password/<uid>/<token>/', reset_password, name='reset_password'),
     path('inputdata' ,datainput, name='data_input'),
     path('signupteachers', signup_teachers, name='signup_teachers'),
-    path('singupstudents', signup_students, name='signup_students')
+    path('singupstudents', signup_students, name='signup_students'),
+    path('forgot_password', forgot, name='forgot')
 ]

@@ -14,12 +14,12 @@
         {% csrf_token %}
         
         {% if messages %}
-    <div class="error_message">
-        {% for message in messages %}
+        <div class="alert {% for message in messages %}{% if 'success' in message.tags %}alert-success{% elif 'error' in message.tags %}alert-danger{% endif %}{% endfor %}">
+            {% for message in messages %}
             {{ message }}
-        {% endfor %}
-    </div>
-{% endif %}
+            {% endfor %}
+        </div>
+        {% endif %}
         <div class="container">
             <a href="/signupteachers" class="new_teaacher">signup new teacher</a><br><br>
             <a href="/logout" class="logout">Logout</a>

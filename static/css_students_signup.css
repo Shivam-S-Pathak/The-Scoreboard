@@ -83,20 +83,18 @@ button:hover {
 span {
     display: flex;
 }
-.error_message {
-    color: rgb(32, 29, 132);
+.alert {
+    
     display: flex;
     justify-content: start;
     align-items: start;
+    margin-bottom: 100%;
     text-wrap: nowrap;
-    font-size: 150%;
-    background-color: rgb(243, 9, 64);
+    font-size: 200%;
     border-radius: 50px;
-    margin-right: 30%;
-    margin-left: 30%;
-    padding: 1%;
+    padding: 2%;
+    left:21%;
     animation: morphTransition 0.2s ease-in-out forwards;
-
 
 }
 
@@ -108,4 +106,14 @@ span {
     to {
         transform: scale(1);
     }
+}
+
+.alert-success{
+    background-color: rgb(165, 243, 165);
+    color: rgb(37, 94, 37);
+}
+
+.alert-danger{
+    background-color: rgb(234, 132, 132);
+    color: rgb(252, 0, 0);
 }

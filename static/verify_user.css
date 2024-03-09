@@ -56,14 +56,41 @@
     }
 
 
-    .messages {
-        border-style: solid;
-        text-align: center;
-        color: rgb(173, 29, 7);
-        font-size: large;
-        margin-left: 10px;
-        margin-right: 10px;
+    .alert {
+    
+        display: flex;
+        justify-content: start;
+        align-items: start;
+        margin-bottom: 100%;
+        text-wrap: nowrap;
+        font-size: 200%;
+        border-radius: 50px;
+        padding: 2%;
+        left:21%;
+        animation: morphTransition 0.2s ease-in-out forwards;
+    
     }
+    
+    @keyframes morphTransition {
+        from {
+            transform: scale(0);
+        }
+    
+        to {
+            transform: scale(1);
+        }
+    }
+    
+    .alert-success{
+        background-color: rgb(165, 243, 165);
+        color: rgb(37, 94, 37);
+    }
+    
+    .alert-danger{
+        background-color: rgb(234, 132, 132);
+        color: rgb(252, 0, 0);
+    }
+    
 
     .title {
         font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;

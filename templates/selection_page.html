@@ -12,12 +12,12 @@
 <body>
   <a href="/logout">Logout</a>
   {% if messages %}
-          <div class="error_message">
-              {% for message in messages %}
-              {{ message }}
-              {% endfor %}
-          </div>
-          {% endif %}
+  <div class="alert {% for message in messages %}{% if 'success' in message.tags %}alert-success{% elif 'error' in message.tags %}alert-danger{% endif %}{% endfor %}">
+      {% for message in messages %}
+      {{ message }}
+      {% endfor %}
+  </div>
+  {% endif %}
   <div class="main">
     <section class="sub">
       <form action="" method="post">

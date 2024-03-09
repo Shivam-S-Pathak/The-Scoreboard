@@ -5,6 +5,14 @@ from django.db import IntegrityError
 from django.shortcuts import render,redirect
 from django.contrib.auth import login,authenticate,logout
 from django.contrib.auth.models import User,Group
+
+
+from django.contrib.auth.tokens import default_token_generator
+from django.core.mail import EmailMultiAlternatives
+from django.template.loader import render_to_string
+from django.utils.http import urlsafe_base64_encode , urlsafe_base64_decode
+from django.utils.encoding import force_bytes
+
 from result.models import *
 from result.forms import *
 
@@ -21,12 +29,12 @@ def index(request):
              # it checks wheather the enter creadentials are from student group or not 
              if user is not None and user.groups.filter(name='Students').exists():
                login(request, user)
-               return redirect("selection_page")
+               return redirect("/selection_page")
 
              else:
-                messages.success(request, "!!!! username or password is invalid !!!!!")
+                messages.error(request, "!!!! username or password is invalid !!!!!")
                 print(messages.get_messages(request))
-                return render(request, 'index.html')  
+                return redirect("/") 
         else:
             return render(request, 'index.html')
         
@@ -41,8 +49,8 @@ def teachers_login(request):
                 return redirect("/inputdata")
 
              else:
-                messages.success(request, "!!!! username or password is invalid !!!!!")
-                return render(request, 'teachers_login.html')   
+                messages.error(request, "!!!! username or password is invalid !!!!!")
+                return redirect("/teachers_login")   
          else:
             return render(request, 'teachers_login.html')
          
@@ -89,7 +97,7 @@ def datainput(request):
                                Total=totaling , res=result , email=email )
                content.save()
                messages.success(request, "!!!! Data uploaded successfully !!!!!")
-               return render(request, 'input_data.html')
+               return redirect("/inputdata")
           else:
                return render(request, 'input_data.html')
 
@@ -108,7 +116,7 @@ def selection(request):
               return render(request, 'dataview.html', context)
           else:
                 messages.success(request, "!!!! course or semster or exam_type does not exist !!!!!")
-                return render(request, 'selection_page.html')
+                return redirect("/selection_page")
      else:
           return render(request, 'selection_page.html')
      
@@ -125,15 +133,6 @@ def logoutuser(request):
 
 
 
-def verify(request):
-     if request.method=="POST":
-          return redirect("generate_password")
-     return render(request, 'verify_user.html')
-
-
-def forgot(request):
-     return render(request, 'forgot.html')
-
 def signup_teachers(request):
      try:
          if request.method=='POST':
@@ -147,13 +146,16 @@ def signup_teachers(request):
              group_name=request.POST.get('user_type')
              #checks if the email provided is already exist in the database
              if User.objects.filter(email=mail).exists():
-               return render(request, 'signup_teachers.html', {'error_message': 'Email is already in use'})
+               messages.error(request, 'Email is already in use')
+               return redirect("/signupteachers")
              
              if User.objects.filter(username=username).exists():
-               return render(request, 'signup_teachers.html', {'error_message': 'username is already in use'})
+                    messages.error(request, 'username is already in use')
+                    return redirect("/signupteachers")
              # checks if password and confirm password is diffrent or same
              if password != confirm_password:
-                return render(request, 'signup_teachers.html', {'error_message': 'Passwords do not match'})
+                messages.error(request, 'Passwords do not match')
+                return redirect("/signupteachers")
                # create and save a new user in the database
              user = User.objects.create_user(username=username, email=mail, password=password , first_name=first , last_name=last)
              
@@ -179,13 +181,16 @@ def signup_students(request):
              group_name=request.POST.get('user_type')
         
              if User.objects.filter(email=mail).exists():
-                 return render(request, 'signup_students.html', {'error_message': 'Email is already in use'})
+                 messages.error(request, 'Email is already in use')
+                 return redirect("/signupstudents")
             
              if User.objects.filter(username=username).exists():
-                 return render(request, 'signup_teachers.html', {'error_message': 'username is already in use'})
+                 messages.error(request, 'username is already in use')
+                 return redirect("/signupstudents")
             
              if password != confirm_password:
-               return render(request, 'signup_students.html', {'error_message': 'Passwords do not match'})
+               messages.error(request, 'Passwords do not match')
+               return redirect("/signupstudents")
               
              user = User.objects.create_user(username=username, email=mail, password=password , first_name=first , last_name=last)
              group = Group.objects.get(name=group_name)
@@ -195,3 +200,71 @@ def signup_students(request):
           return HttpResponse("Something went wrong try again")
 
      return render(request, 'signup_students.html')
+
+
+
+
+def verify_email(request):
+          if request.method=='POST':
+               email=request.POST.get('email')
+               user=User.objects.filter(email=email).first()
+               
+               if user:
+                     token = default_token_generator.make_token(user)
+                     uid = urlsafe_base64_encode(force_bytes(user.pk))
+                     reset_link = f"http://127.0.0.1:8000/reset-password/{uid}/{token}/"
+                     print(reset_link)
+                     msg = EmailMultiAlternatives(
+                           subject='Password Reset',
+                         #   body=render_to_string('reset_email.html', {'reset_link': reset_link}),
+                           from_email='noreply.result.mail@gmail.com',
+                           to=[email],
+                     )
+                     msg.attach_alternative(render_to_string('reset_email.html', {'reset_link': reset_link}), 'text/html')
+                     msg.send()
+                     messages.success(request, "Email sent successfully")
+                     return redirect("/verify_user")
+          
+               else:
+                    messages.error(request, "!!!! Email does not exist !!!!!")
+                    return redirect("/verify_user")
+               
+          else:
+               return render(request, 'verify_user.html')
+          
+          
+
+def reset_password(request, uid, token):
+     try:
+        # Decode the uid to get the user's primary key (pk)
+        uid = urlsafe_base64_decode(str(uid))
+        user = User.objects.get(pk=uid)
+     except (ValueError, OverflowError, User.DoesNotExist):
+         user = None
+
+    # Validate the user and token
+     if user is not None and default_token_generator.check_token(user, token):
+        if request.method == 'POST':
+            # get password submitted with new password
+           password=request.POST.get('password')
+           confirm_password=request.POST.get('confirm_password')
+           if password !=confirm_password :
+                messages.error(request, 'Passwords does not match')
+                return redirect("/forgot_password")
+           else:
+                user.set_password(password)
+                user.save()
+                login(request, user)
+                messages.success(request, 'Your password has been successfully reset.')
+                return redirect('/')
+        else:
+            # Display password reset form
+          return render(request, 'forgot.html')
+     else:
+        # Invalid user or token, display error message and redirect
+        messages.error(request, 'The link is invalid or has expired.')
+        return redirect('/verify_user')
+     
+
+def forgot(request):
+     return render(request, "forgot.html")     

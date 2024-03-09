@@ -5,23 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Change password</title>
-    <link rel="stylesheet" href="static\forgotStyle.css">
+    <link rel="stylesheet" href="static\forgot.css">
 </head>
 <body>
     <form method="post" action=" ">
         {% csrf_token %}
+        {% if messages %}
+    <div class="alert {% for message in messages %}{% if 'success' in message.tags %}alert-success{% elif 'error' in message.tags %}alert-danger{% endif %}{% endfor %}">
+        {% for message in messages %}
+        {{ message }}
+        {% endfor %}
+    </div>
+    {% endif %}
         <div class="container">
             <div class="input">
                 <div class="title"><b>Change password</b></div><br>
-                {% if messages %}
-                <p class="messages">
-                    {% for message in messages %}
-                    <span{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</span>
-                        {% endfor %}
-                </p>
-                {% endif %}
-                <input type="password" name="password1" placeholder="New password" autocomplete="off" required><br>
-                <input type="password" name="password1" placeholder="Re-enter password" autocomplete="off" required><br>
+                <input type="password" name="password" placeholder="New password" autocomplete="off" required><br>
+                <input type="password" name="confirm_password" placeholder="Re-enter password" autocomplete="off" required><br>
             </div>
             <button type="submit">Login</button>
             <div class="note">

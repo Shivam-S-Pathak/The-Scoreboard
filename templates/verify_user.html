@@ -5,25 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Verify Email</title>
-    <link rel="stylesheet" href="static\verifyStyle.css">
+    <link rel="stylesheet" href="static\verify_user.css">
 </head>
 
 <body>
     <form method="post" action=" ">
         {% csrf_token %}
+        {% if messages %}
+    <div class="alert {% for message in messages %}{% if 'success' in message.tags %}alert-success{% elif 'error' in message.tags %}alert-danger{% endif %}{% endfor %}">
+        {% for message in messages %}
+        {{ message }}
+        {% endfor %}
+    </div>
+    {% endif %}
         <div class="container">
             <div class="input">
                 <div class="title"><b>Verify Email</b></div><br>
-                <!-- {% if messages %}
-                <p class="messages">
-                    {% for message in messages %}
-                    <span{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</span>
-                        {% endfor %}
-                </p>
-                {% endif %} -->
-                <input type="email" name="password1" placeholder="Enter registered Email" autocomplete="off" required><br>
+                <input type="email" name="email" placeholder="Enter registered Email" autocomplete="off" required><br>
             </div>
-            <button type="submit">Login</button>
+            <button type="submit">verify</button>
             <div class="note">
         </div>
     </form>

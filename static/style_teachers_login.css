@@ -5,7 +5,6 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    overflow: hidden;
     backdrop-filter: blur(15px);
     display: flex;
     justify-content: center;
@@ -180,15 +179,14 @@ span2 {
     text-decoration: underline;
 }
 
-.error_message {
-    color: rgb(32, 29, 132);
+.alert {
+    
     display: flex;
     justify-content: start;
     align-items: start;
     margin-bottom: 100%;
-    text-wrap: nowrap;
+    white-space: nowrap;
     font-size: 200%;
-    background-color: rgb(243, 9, 64);
     border-radius: 50px;
     padding: 2%;
     left:21%;
@@ -204,4 +202,14 @@ span2 {
     to {
         transform: scale(1);
     }
+}
+
+.alert-success{
+    background-color: rgb(165, 243, 165);
+    color: rgb(37, 94, 37);
+}
+
+.alert-danger{
+    background-color: rgb(234, 132, 132);
+    color: rgb(252, 0, 0);
 }
