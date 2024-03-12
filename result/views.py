@@ -68,33 +68,33 @@ def datainput(request):
                exam_type=request.POST.get('exam_type')
                Sub1=request.POST.get('sub1')
                M1=request.POST.get('m1')
-               # pdf_files1=request.FILES.get('pdf_file1')
+               pdf_files1=request.FILES.get('pdf_file1')
                Sub2=request.POST.get('sub2')
                M2=request.POST.get('m2')
-               # pdf_files2=request.FILES.get('pdf_file2')
+               pdf_files2=request.FILES.get('pdf_file2')
                Sub3=request.POST.get('sub3')
                M3=request.POST.get('m3')
-               # pdf_files3=request.FILES.get('pdf_file3')
+               pdf_files3=request.FILES.get('pdf_file3')
                Sub4=request.POST.get('sub4')
                M4=request.POST.get('m4')
-               # pdf_files4=request.FILES.get('pdf_file4')
+               pdf_files4=request.FILES.get('pdf_file4')
                Sub5=request.POST.get('sub5')
                M5=request.POST.get('m5')
-               # pdf_files5=request.FILES.get('pdf_file5')
+               pdf_files5=request.FILES.get('pdf_file5')
                totaling=request.POST.get('total')
                result=request.POST.get('result')
                content=Result(student_name=Name , enrollment_no=Enrollment ,
                                course_id= C_id , course_name=C_name , Branch=branch , 
                                semester=Sem , exam=exam_type , subject1=Sub1 , marks1=M1 ,
-                               #pdf1=pdf_files1 ,
+                               pdf1=pdf_files1 ,
                                subject2=Sub2 , marks2=M2 ,
-                              #    pdf2=pdf_files2 ,
+                                 pdf2=pdf_files2 ,
                                subject3=Sub3 , marks3=M3 ,
-                              #    pdf3=pdf_files3 ,
+                                 pdf3=pdf_files3 ,
                                  subject4=Sub4 , marks4=M4 , 
-                              #    pdf4=pdf_files4 ,
+                                 pdf4=pdf_files4 ,
                                  subject5=Sub5 , marks5=M5 , 
-                              #  pdf5=pdf_files5 ,
+                               pdf5=pdf_files5 ,
                                Total=totaling , res=result)
                content.save()
                messages.success(request, "!!!! Data uploaded successfully !!!!!")
@@ -196,7 +196,8 @@ def signup_students(request):
              user = User.objects.create_user(username=username, email=mail, password=password , first_name=first , last_name=last)
              group = Group.objects.get(name=group_name)
              user.groups.add(group)
-             return redirect("/")
+             messages.success(request, 'Signed up successfully')
+             return redirect("/student_login")
      except:
           return HttpResponse("Something went wrong try again")
 

@@ -1,5 +1,7 @@
 from result.views import *
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('',index,name='index'),
@@ -11,8 +13,12 @@ urlpatterns = [
     path('reset-password/<uid>/<token>/', reset_password, name='reset_password'),
     path('inputdata' ,datainput, name='data_input'),
     path('signupteachers', signup_teachers, name='signup_teachers'),
-    path('singupstudents', signup_students, name='signup_students'),
+    path('signupstudents', signup_students, name='signup_students'),
     path('forgot_password', forgot, name='forgot'),
     path('student_login' , student_login, name='student_login'),
     path('service_page' , service, name='service'),
 ]
+
+if settings.DEBUG:
+    urlpatterns +=static(settings.MEDIA_URL,
+                         document_root=settings.MEDIA_ROOT)

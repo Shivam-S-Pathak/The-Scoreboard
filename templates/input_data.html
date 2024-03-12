@@ -10,7 +10,7 @@
 
 {% block body %}
     
-    <form method="post" action=" ">
+    <form method="post" action=" " enctype="multipart/form-data">
         {% csrf_token %}
         
         {% if messages %}
@@ -76,23 +76,23 @@
             <br>
             Subject1 : <input type="text" name="sub1" id="" placeholder="Enter the subject name " required>
             Marks1 : <input type="text" name="m1" id="" placeholder="Enter the marks of subject 1" required><br>
-            <!-- PDF of subject1: <input type="file" name="pdf_file1" id="pdf_file1"><br> -->
+            PDF of subject1: <input type="file" name="pdf_file1" id="pdf_file1" required><br>
             <br>
             Subject2 : <input type="text" name="sub2" id="" placeholder="Enter the subject name " required>
             Marks2 : <input type="text" name="m2" id="" placeholder="Enter the marks of subject 2" required><br>
-            <!-- PDF of subject2: <input type="file" name="pdf_file2" id="pdf_file2"><br> -->
+            PDF of subject2: <input type="file" name="pdf_file2" id="pdf_file2" required><br>
             <br>
             Subject3 : <input type="text" name="sub3" id="" placeholder="Enter the subject name " required>
             Marks3 : <input type="text" name="m3" id="" placeholder="Enter the marks of subject 3" required><br>
-            <!-- PDF of subject3: <input type="file" name="pdf_file3" id="pdf_file3"><br> -->
+            PDF of subject3: <input type="file" name="pdf_file3" id="pdf_file3" required><br>
             <br>
             Subject4 : <input type="text" name="sub4" id="" placeholder="Enter the subject name " required>
             Marks4 : <input type="text" name="m4" id="" placeholder="Enter the marks of subject 4" required><br>
-            <!-- PDF of subject4: <input type="file" name="pdf_file4" id="pdf_file4"><br> -->
+            PDF of subject4: <input type="file" name="pdf_file4" id="pdf_file4" required><br>
             <br>
             Subject5 : <input type="text" name="sub5" id="" placeholder="Enter the subject name ">
             Marks5 : <input type="text" name="m5" id="" placeholder="Enter the marks of subject 5"><br>
-            <!-- PDF of subject5: <input type="file" name="pdf_file5" id="pdf_file5"><br> -->
+            PDF of subject5: <input type="file" name="pdf_file5" id="pdf_file5"><br>
             <br>
             Total: <input type="text" name="total" id="total" required><br>
             <br>

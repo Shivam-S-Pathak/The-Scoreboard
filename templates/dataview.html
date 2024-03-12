@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DataView Page</title>
     <style>
-        a {
+        .logout-dataview{
             position: absolute;
             left: 90%;
             text-decoration: none;
@@ -91,7 +91,7 @@
 <body>
     <div>
         <h1>Page is under construction&nbsp;
-            <a href="/logout">Logout</a>
+            <a href="/logout" class="logout-dataview">Logout</a>
         </h1>
         <h2>Results</h2>
         <table cellspacing="30" class="table1">
@@ -131,39 +131,52 @@
             </thead>
             <tbody>
                 {% for result in results %}
-                <tr>
 
+
+                {% if result.subject1 %}
+                <tr>
                     <td>{{ result.subject1}}</td>
                     <td>{{ result.marks1}}</td>
-                    <td>{{ result.pdf1}}</td>
+                    <td><a href="{{ result.pdf1.url}}">view pdf</a></td>
 
                 </tr>
-                </tr>
+                {% endif %}
+
+
+                {% if result.subject2 %}  
+                <tr>
                 <td>{{ result.subject2}}</td>
                 <td>{{ result.marks2}}</td>
-                <td>{{ result.pdf2}}</td>
+                <td><a href="{{ result.pdf2.url}}">view pdf</a> </td>
+                </tr>
+                {% endif %}
 
-                </tr>
-                </tr>
+
+                {% if result.subject3 %} 
+                <tr>
                 <td>{{ result.subject3}}</td>
                 <td>{{ result.marks3}}</td>
-                <td>{{ result.pdf3}}</td>
+                <td><a href="{{ result.pdf3.url}}">view pdf</a></td>
+                </tr>
+                {% endif %}
 
-                </tr>
-                </tr>
+                {% if result.subject4 %}
+                <tr>
                 <td>{{ result.subject4}}</td>
                 <td>{{ result.marks4}}</td>
-                <td>{{ result.pdf4}}</td>
+                <td> <a href="{{ result.pdf4.url}}">view pdf</a></td>
                 </tr>
+                {% endif %}
 
-                </tr>
-
+                {% if result.subject5 %}
+                <tr>
                 <td>{{ result.subject5}}</td>
                 <td>{{ result.marks5}}</td>
-                <td>{{ result.pdf5}}</td>
-
+                {% if result.pdf5%}
+                <td><a href="{{ result.pdf5.url}}">view pdf</a></td>
+                {% endif %}
                 </tr>
-
+                {% endif %} 
 
                 {% endfor %}
             </tbody>

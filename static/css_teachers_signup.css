@@ -109,11 +109,9 @@ span {
 }
 
 .alert-success{
-    background-color: rgb(165, 243, 165);
     color: rgb(37, 94, 37);
 }
 
 .alert-danger{
-    background-color: rgb(234, 132, 132);
     color: rgb(252, 0, 0);
 }
