@@ -29,7 +29,6 @@ class Result(models.Model):
     # pdf5=models.FileField( blank=True, null=True)
     Total=models.CharField(max_length=30, default='0')
     res=models.CharField(max_length=30 , default='0')
-    email=models.CharField(max_length=30 , default='0')
 
     def __str__(self):
        return str(self.enrollment_no)

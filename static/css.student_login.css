@@ -2,7 +2,6 @@ body {
     width: 100vw;
     height: 100vh;
     background-image: url('image.jpg');
-    backdrop-filter: blur(15px);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -18,8 +17,8 @@ body {
     align-items: center;
     height: 700px;
     width: 800px;
-    background-color: rgb(221, 157, 60, 0.6);
-    backdrop-filter: blur(40px);
+    background-color: rgba(52, 49, 49, 0.3);
+    backdrop-filter: blur(10px);
     border-radius: 3cap;
 }
 
@@ -222,11 +221,9 @@ span2 {
 }
 
 .alert-success{
-    background-color: rgb(165, 243, 165);
     color: rgb(37, 94, 37);
 }
 
 .alert-danger{
-    background-color: rgb(188, 99, 99);
     color: rgb(255, 17, 17);
 }

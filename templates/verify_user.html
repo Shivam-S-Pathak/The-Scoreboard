@@ -11,16 +11,16 @@
 <body>
     <form method="post" action=" ">
         {% csrf_token %}
-        {% if messages %}
-    <div class="alert {% for message in messages %}{% if 'success' in message.tags %}alert-success{% elif 'error' in message.tags %}alert-danger{% endif %}{% endfor %}">
-        {% for message in messages %}
-        {{ message }}
-        {% endfor %}
-    </div>
-    {% endif %}
         <div class="container">
             <div class="input">
                 <div class="title"><b>Verify Email</b></div><br>
+                {% if messages %}
+            <div class="alert {% for message in messages %}{% if 'success' in message.tags %}alert-success{% elif 'error' in message.tags %}alert-danger{% endif %}{% endfor %}">
+                {% for message in messages %}
+                {{ message }}
+                {% endfor %}
+            </div>
+            {% endif %}
                 <input type="email" name="email" placeholder="Enter registered Email" autocomplete="off" required><br>
             </div>
             <button type="submit">verify</button>

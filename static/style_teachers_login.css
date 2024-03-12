@@ -5,7 +5,6 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    backdrop-filter: blur(15px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,7 +17,7 @@ body {
     align-items: center;
     height: 700px;
     width: 800px;
-    background-color: rgb(221, 157, 60,0.6);
+    background-color: rgba(52, 49, 49, 0.3);
     backdrop-filter: blur(10px);
     border-radius: 3cap;    
 
@@ -205,11 +204,9 @@ span2 {
 }
 
 .alert-success{
-    background-color: rgb(165, 243, 165);
     color: rgb(37, 94, 37);
 }
 
 .alert-danger{
-    background-color: rgb(234, 132, 132);
     color: rgb(252, 0, 0);
 }

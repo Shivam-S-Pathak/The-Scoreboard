@@ -1,15 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'navigation.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fill result data</title>
-    <link rel="stylesheet" href="static\css_input_data.css">
-</head>
+{% block page_css %}
+<link rel="stylesheet" href="static\css_input_data.css">
+{% endblock page_css %}
+    
+{% block title %}
+    Fill result data
+{% endblock title %}
 
-<body>
+{% block body %}
+    
     <form method="post" action=" ">
         {% csrf_token %}
         
@@ -22,7 +22,6 @@
         {% endif %}
         <div class="container">
             <a href="/signupteachers" class="new_teaacher">signup new teacher</a><br><br>
-            <a href="/logout" class="logout">Logout</a>
             Student Name: <input type="text" name="Name" id="Name" required><br>
             <br>
             Enrollment number: <input type="text" name="Enrollment" id="Enrollment_no" required> <br>
@@ -103,6 +102,4 @@
             <button type="submit">Submit</button>
         </div>
     </form>
-</body>
-
-</html>
+    {% endblock body %}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> {% block title %}{% endblock title %}|result </title>
+ <link rel="stylesheet" href="static\css_navigation.css">
+ {% block page_css %}
+  
+ {% endblock page_css %}
+</head>
+
+<body>
+    <div class="content-Wrapper">
+      <div class="headding">
+        <div class="subhead">
+          <span>
+            <a href="/"  id="anchor">Home</a>
+          </span>
+          <div class="service">
+            <a href="#" id="anchor">Services</a>
+            <div class="info-box">
+              <a href="/inputdata" class="click">Upload result</a>
+              <a href="/signupteachers" class="click">Sign up new Faculty</a>
+            </div>
+          </div>
+          <span>
+            <a href="#" id="anchor">Raise a question</a>
+          </span>
+          <span>
+            <a href="#" id="anchor">About</a>
+          </span>
+        </div>
+  
+        <div class="circle">
+          <p>S</p>
+  
+  
+          <div class="account">
+            <div class="data">
+              <p>S</p>
+            </div>
+            <span><b>{{ user.username }}</b></span>
+            <span><b>{{user.email}}</b></span>
+            <a href="/logout" class="logout">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+    {% block body %}
+    
+    {% endblock body %}
+  </body>
+  
+  </html>

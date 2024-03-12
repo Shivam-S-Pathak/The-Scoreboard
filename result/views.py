@@ -20,7 +20,10 @@ from result.forms import *
 # Create your views here.
 
 def index(request):
-        if request.method=="POST":
+            return render(request, "index.html")
+        
+def student_login(request):
+     if request.method=="POST":
              #takes the input by user and it following variables
              username = request.POST.get('username')
              password = request.POST.get('password')
@@ -33,11 +36,10 @@ def index(request):
 
              else:
                 messages.error(request, "!!!! username or password is invalid !!!!!")
-                print(messages.get_messages(request))
-                return redirect("/") 
-        else:
-            return render(request, 'index.html')
-        
+                return redirect("/student_login") 
+     else:
+          return render(request, 'student_login.html')
+
 
 def teachers_login(request):
          if request.method=="POST":
@@ -46,7 +48,7 @@ def teachers_login(request):
              user= authenticate(username = username, password= password)
              if user is not None and user.groups.filter(name='Teachers').exists():
                 login(request, user)
-                return redirect("/inputdata")
+                return redirect("/service_page")
 
              else:
                 messages.error(request, "!!!! username or password is invalid !!!!!")
@@ -81,7 +83,6 @@ def datainput(request):
                # pdf_files5=request.FILES.get('pdf_file5')
                totaling=request.POST.get('total')
                result=request.POST.get('result')
-               email=request.user.email
                content=Result(student_name=Name , enrollment_no=Enrollment ,
                                course_id= C_id , course_name=C_name , Branch=branch , 
                                semester=Sem , exam=exam_type , subject1=Sub1 , marks1=M1 ,
@@ -94,7 +95,7 @@ def datainput(request):
                               #    pdf4=pdf_files4 ,
                                  subject5=Sub5 , marks5=M5 , 
                               #  pdf5=pdf_files5 ,
-                               Total=totaling , res=result , email=email )
+                               Total=totaling , res=result)
                content.save()
                messages.success(request, "!!!! Data uploaded successfully !!!!!")
                return redirect("/inputdata")
@@ -268,3 +269,6 @@ def reset_password(request, uid, token):
 
 def forgot(request):
      return render(request, "forgot.html")     
+
+def service(request):
+     return render(request , 'service_page.html')

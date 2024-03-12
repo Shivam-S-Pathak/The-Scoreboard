@@ -12,5 +12,7 @@ urlpatterns = [
     path('inputdata' ,datainput, name='data_input'),
     path('signupteachers', signup_teachers, name='signup_teachers'),
     path('singupstudents', signup_students, name='signup_students'),
-    path('forgot_password', forgot, name='forgot')
+    path('forgot_password', forgot, name='forgot'),
+    path('student_login' , student_login, name='student_login'),
+    path('service_page' , service, name='service'),
 ]

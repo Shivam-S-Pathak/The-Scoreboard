@@ -1,0 +1,23 @@
+{% extends 'navigation.html' %}
+
+{% block page_css %}
+<link rel="stylesheet" href="static\css_service.css">
+{% endblock page_css %}
+
+{% block title %}
+service page
+{% endblock title %}
+
+{% block body %}
+<div class="container-first">
+    <div class="img-wrapper"></div>
+    <div class="content-wrapper">
+        <p>Welcome {{ user.username }}!!</p>
+        <p class="att"><u>Please select an option for your further operations</u></p>
+    </div>
+
+    <a href="/signupteachers" class="b1"><b>Sign up new faculty</b></a>
+    <a href="/inputdata" class="b2"><b>Upload student result</b></a>
+</div>
+
+{% endblock body %}
