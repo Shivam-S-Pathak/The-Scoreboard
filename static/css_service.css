@@ -55,9 +55,25 @@
     background-color: rgb(221, 157, 60);
     color:rgb(32, 29, 132);
 }
+.b3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    height: 18vh;
+    font-size: 2vw;
+    margin: 10px 0;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 25px;
+    margin: 2%;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    background-color: rgb(32, 29, 132);
+    color:rgb(221, 157, 60);
+}
 
 .b1:hover,
-.b2:hover {
+.b2:hover, b3:hover{
     transform: scale(0.90);
     /* Reduce size on hover */
 }

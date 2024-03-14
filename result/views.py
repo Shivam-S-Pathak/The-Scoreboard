@@ -20,7 +20,9 @@ from result.forms import *
 # Create your views here.
 
 def index(request):
-            return render(request, "index.html")
+            notice=notice_board.objects.first()
+            context={'notice':notice}
+            return render(request, "index.html", context)
         
 def student_login(request):
      if request.method=="POST":
@@ -273,3 +275,17 @@ def forgot(request):
 
 def service(request):
      return render(request , 'service_page.html')
+
+def update_notice(request):
+     if request.method=='POST':
+          update=request.POST.get('updatenotice')
+
+          obj=notice_board.objects.first()
+          obj.notice=update
+          obj.save()
+          messages.success(request, "Notice is updated successfully" )
+          return redirect("/update-notice")
+     else:
+            notice=notice_board.objects.first()
+            context={'notice':notice}
+            return render(request, "notice_updates.html", context)

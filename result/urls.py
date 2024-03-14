@@ -17,6 +17,7 @@ urlpatterns = [
     path('forgot_password', forgot, name='forgot'),
     path('student_login' , student_login, name='student_login'),
     path('service_page' , service, name='service'),
+    path('update-notice' , update_notice, name='update_notice'),
 ]
 
 if settings.DEBUG:

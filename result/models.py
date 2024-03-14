@@ -34,4 +34,5 @@ class Result(models.Model):
        return str(self.enrollment_no)
     
 
-
+class notice_board(models.Model):
+    notice=models.TextField(default="NO notice to show")

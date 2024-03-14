@@ -1,0 +1,24 @@
+{% extends 'navigation.html' %}
+
+{% block title %}
+Update Notice
+{% endblock title %}
+
+{% block body %}
+<form action=" " method="post">
+    {% csrf_token %}
+
+    Enter the Notice here: <textarea name="updatenotice" id="updatenotice" cols="30"
+        rows="10">{{notice.notice}}</textarea>
+    <button type="submit">Submit</button>
+
+    {% if messages %}
+    <div
+        class="alert {% for message in messages %}{% if 'success' in message.tags %}alert-success{% elif 'error' in message.tags %}alert-danger{% endif %}{% endfor %}">
+        {% for message in messages %}
+        {{ message }}
+        {% endfor %}
+    </div>
+    {% endif %}
+</form>
+{% endblock body %}
