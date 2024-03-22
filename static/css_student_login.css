@@ -17,7 +17,7 @@ body {
     align-items: center;
     height: 700px;
     width: 800px;
-    background-color: rgba(52, 49, 49, 0.3);
+    background-color: rgba(208, 206, 206, 0.383);
     backdrop-filter: blur(10px);
     border-radius: 3cap;
 }

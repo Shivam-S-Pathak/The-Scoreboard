@@ -73,7 +73,7 @@
 }
 
 .b1:hover,
-.b2:hover, b3:hover{
+.b2:hover, .b3:hover{
     transform: scale(0.90);
     /* Reduce size on hover */
 }

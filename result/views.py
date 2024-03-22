@@ -16,7 +16,6 @@ from django.utils.encoding import force_bytes
 from result.models import *
 from result.forms import *
 
-
 # Create your views here.
 
 def index(request):
@@ -118,7 +117,7 @@ def selection(request):
 
               return render(request, 'dataview.html', context)
           else:
-                messages.success(request, "!!!! course or semster or exam_type does not exist !!!!!")
+                messages.error(request, "!!!! course or semster or exam_type does not exist !!!!!")
                 return redirect("/selection_page")
      else:
           return render(request, 'selection_page.html')
@@ -165,6 +164,7 @@ def signup_teachers(request):
              # Add the user to the specified group
              group = Group.objects.get(name=group_name)
              user.groups.add(group)
+             messages.success(request, 'Signed up successfully')
              return redirect("/teachers_login")
      except:
           return HttpResponse("Something went wrong try again")
@@ -199,7 +199,7 @@ def signup_students(request):
              group = Group.objects.get(name=group_name)
              user.groups.add(group)
              messages.success(request, 'Signed up successfully')
-             return redirect("/student_login")
+             return redirect("/signupstudents")
      except:
           return HttpResponse("Something went wrong try again")
 
@@ -276,16 +276,23 @@ def forgot(request):
 def service(request):
      return render(request , 'service_page.html')
 
+@login_required
 def update_notice(request):
-     if request.method=='POST':
-          update=request.POST.get('updatenotice')
 
-          obj=notice_board.objects.first()
-          obj.notice=update
-          obj.save()
-          messages.success(request, "Notice is updated successfully" )
-          return redirect("/update-notice")
-     else:
-            notice=notice_board.objects.first()
-            context={'notice':notice}
-            return render(request, "notice_updates.html", context)
+          if request.method=='POST':
+               update=request.POST.get('updatenotice')
+
+               obj=notice_board.objects.first()
+               obj.notice=update
+               obj.save()
+               messages.success(request, "Notice is updated successfully" )
+               return redirect("/update-notice")
+
+          else:
+               notice=notice_board.objects.first()
+               context={'notice':notice}
+               return render(request, "notice_updates.html", context)
+          
+
+def custom_404_view(request, exception):
+    return render(request, 'page_error.html', status=404)

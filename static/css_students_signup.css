@@ -30,7 +30,7 @@ body {
     background-color: #c08d3a;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(9, 9, 9, 0.1);
 }
 
 .form-control {
@@ -113,5 +113,5 @@ span {
 }
 
 .alert-danger{
-    color: rgb(252, 0, 0);
+    color: rgba(252, 0, 0, 0.681);
 }

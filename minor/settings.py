@@ -150,3 +150,6 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'noreply.result.mail@gmail.com'
 EMAIL_HOST_PASSWORD = 'xjhb sdgx oyay widq'
 EMAIL_DEBUG = True
+
+
+LOGIN_URL = '/teachers_login'

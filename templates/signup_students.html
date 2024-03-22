@@ -13,16 +13,16 @@
         <form method="post" action=" ">
             {% csrf_token %}
             <h2>Signup Form for Students </h2>
-            {% if messages %}
-            <div class="alert {% for message in messages %}{% if 'success' in message.tags %}alert-success{% elif 'error' in message.tags %}alert-danger{% endif %}{% endfor %}">
-                {% for message in messages %}
-                {{ message }}
-                {% endfor %}
-            </div>
-            {% endif %}
             <div class="form-control">
                 <label for="user-type">NOTE:</label> <br>
                 <div class="note-wrapper">
+                    {% if messages %}
+                    <div class="alert {% for message in messages %}{% if 'success' in message.tags %}alert-success{% elif 'error' in message.tags %}alert-danger{% endif %}{% endfor %}">
+                        {% for message in messages %}
+                        {{ message }}
+                        {% endfor %}
+                    </div>
+                    {% endif %}
                     <span><input type="radio" name="user_type" id="Students" value="Students" required>
                         <label for="Students">I declare that I'm a enrolled student with this college and all the
                             informations provided here is true as per my knowledge</label></span>

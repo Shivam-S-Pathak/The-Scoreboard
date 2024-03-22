@@ -137,7 +137,11 @@
                 <tr>
                     <td>{{ result.subject1}}</td>
                     <td>{{ result.marks1}}</td>
+                    {% if result.pdf1%}
                     <td><a href="{{ result.pdf1.url}}">view pdf</a></td>
+                    {% else %}
+    <td>N/A</td>
+                    {% endif %}
 
                 </tr>
                 {% endif %}
@@ -147,7 +151,11 @@
                 <tr>
                 <td>{{ result.subject2}}</td>
                 <td>{{ result.marks2}}</td>
+                {% if result.pdf2%}
                 <td><a href="{{ result.pdf2.url}}">view pdf</a> </td>
+                {% else %}
+    <td>N/A</td>
+                {% endif %}
                 </tr>
                 {% endif %}
 
@@ -156,7 +164,11 @@
                 <tr>
                 <td>{{ result.subject3}}</td>
                 <td>{{ result.marks3}}</td>
+                {% if result.pdf3%}
                 <td><a href="{{ result.pdf3.url}}">view pdf</a></td>
+                {% else %}
+    <td>N/A</td>
+                {% endif %}
                 </tr>
                 {% endif %}
 
@@ -164,7 +176,11 @@
                 <tr>
                 <td>{{ result.subject4}}</td>
                 <td>{{ result.marks4}}</td>
+                {% if result.pdf4%}
                 <td> <a href="{{ result.pdf4.url}}">view pdf</a></td>
+                {% else %}
+    <td>N/A</td>
+                {% endif %}
                 </tr>
                 {% endif %}
 
@@ -174,6 +190,8 @@
                 <td>{{ result.marks5}}</td>
                 {% if result.pdf5%}
                 <td><a href="{{ result.pdf5.url}}">view pdf</a></td>
+                {% else %}
+    <td>N/A</td>
                 {% endif %}
                 </tr>
                 {% endif %} 
