@@ -74,6 +74,9 @@ When you launch the website on your local machine, you'll see the notice board, 
 
 5. If you choose to "update the notice board," a new page will display the current notice. You can edit the notice and click submit to reflect the changes on the board.
 
+### Add your email id and password
+Please ensure to include your email ID and password in the `settings.py` file to receive the reset password link from the 'forgot password' functionality.
+
 # Technologies used
 ### Backend
 * Django (a python framework)
