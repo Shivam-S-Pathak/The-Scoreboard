@@ -9,8 +9,8 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-attachment: fixed;
 }
-
 .masin-container {
     display: flex;
     justify-content: center;
@@ -32,7 +32,7 @@ body {
     margin-left: 2%;
     margin-right: 3%;
     padding: 5%;
-    animation: morphTransition 0.2s ease-in-out forwards;
+    animation: morphTransition 0.4s ease;
 
 }
 
@@ -68,7 +68,7 @@ a {
     color: rgb(221, 157, 60);
     background-color: rgb(32, 29, 132);
     border-radius: 17px 50px 0 0;
-    animation: morphTransition 0.2s ease-in-out forwards;
+    animation: morphTransition 0.4s ease;
 
 }
 
@@ -103,9 +103,12 @@ a {
     /* left:%; */
     width: 510px;
     height: 60px;
-    border-radius: 20px;
+    /* border-radius: 50px; */
+    border: none;
     background-color: rgb(221, 157, 60);
     color: rgb(32, 29, 132);
+    cursor:pointer;
+    transition: all 0.3s ease;
 }
 
 .btn:active {
@@ -113,26 +116,34 @@ a {
     border-width: thick;
     color: rgb(221, 157, 60);
     background-color: rgb(32, 29, 132);
+    border:solid;
+    transform: scale(0.9);
 
 }
 
 input[type="text"] {
     position: absolute;
     top: 23%;
-    font-size: 200%;
+    font-size: 250%;
     border-width: 0;
     width: 500px;
     height: 80px;
-
+    caret-color: black;
+    caret-shape:block;
+    color: rgb(32, 29, 132);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 input[type="password"] {
     position: absolute;
     top: 55%;
-    font-size: 200%;
+    font-size: 250%;
     border-width: 0;
     width: 500px;
     height: 80px;
+    color: rgb(32, 29, 132);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    caret-color: black;
 }
 
 .Enrollment {
@@ -193,6 +204,11 @@ span2 {
     border-radius: 50px;
     padding: 2%;
     left:21%;
+}
+
+input:focus{
+    box-shadow : 0 0 20px 7px rgba(255, 153, 0, 0.649);
+    outline: none;
 }
 
 .alert {
