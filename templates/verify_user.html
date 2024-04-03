@@ -1,32 +1,39 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verify Email</title>
-    <link rel="stylesheet" href="static\verify_user.css">
-</head>
-
-<body>
-    <form method="post" action=" ">
-        {% csrf_token %}
-        <div class="container">
-            <div class="input">
-                <div class="title"><b>Verify Email</b></div><br>
-                {% if messages %}
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Email verification</title>
+        <link rel="stylesheet" href="static\verify_user.css">
+    </head>
+    
+    <body>
+        <div class="main-container">
+            {% if messages %}
             <div class="alert {% for message in messages %}{% if 'success' in message.tags %}alert-success{% elif 'error' in message.tags %}alert-danger{% endif %}{% endfor %}">
                 {% for message in messages %}
                 {{ message }}
                 {% endfor %}
             </div>
             {% endif %}
-                <input type="email" name="email" placeholder="Enter registered Email" autocomplete="off" required><br>
-            </div>
-            <button type="submit">verify</button>
-            <div class="note">
+            <form action="" method="post">
+                {% csrf_token %}
+            <section class="container-content">
+
+                    <div class="title1">Email verification</div>
+                    
+                    <div class="input">
+                        <label for="userlogin" class="Enter-email">Enter registered email here</label><br>
+                        <span1></span1>
+                        <input type="email" id="email" name="email" required autofocus autocomplete="off"><br>
+                        <button type="submit" class="btn">Verify</button>
+                        <a href="/student_login" class="back">Back to Login</a>
+                    </div>
+            </section>
+        </form>
         </div>
-    </form>
-</body>
+    </body>
 
 </html>

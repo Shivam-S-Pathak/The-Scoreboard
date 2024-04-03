@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <div class="masin-container">
+    <div class="main-container">
         {% if messages %}
             <div class="alert {% for message in messages %}{% if 'success' in message.tags %}alert-success{% elif 'error' in message.tags %}alert-danger{% endif %}{% endfor %}">
                 {% for message in messages %}

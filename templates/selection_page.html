@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Select here</title>
   <link rel="stylesheet" href="static\style_selection.css">
 
 </head>
@@ -13,9 +13,9 @@
   <a href="/logout">Logout</a>
   {% if messages %}
   <div class="alert {% for message in messages %}{% if 'success' in message.tags %}alert-success{% elif 'error' in message.tags %}alert-danger{% endif %}{% endfor %}">
-      {% for message in messages %}
-      {{ message }}
-      {% endfor %}
+    {% for message in messages %}
+    {{ message }}
+    {% endfor %}
   </div>
   {% endif %}
   <div class="main">

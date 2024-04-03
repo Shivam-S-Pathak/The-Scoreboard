@@ -36,7 +36,7 @@ def student_login(request):
                return redirect("/selection_page")
 
              else:
-                messages.error(request, "!!!! username or password is invalid !!!!!")
+                messages.error(request, "username or password is invalid")
                 return redirect("/student_login") 
      else:
           return render(request, 'student_login.html')
@@ -52,7 +52,7 @@ def teachers_login(request):
                 return redirect("/service_page")
 
              else:
-                messages.error(request, "!!!! username or password is invalid !!!!!")
+                messages.error(request, "username or password is invalid")
                 return redirect("/teachers_login")   
          else:
             return render(request, 'teachers_login.html')
@@ -98,7 +98,7 @@ def datainput(request):
                                pdf5=pdf_files5 ,
                                Total=totaling , res=result)
                content.save()
-               messages.success(request, "!!!! Data uploaded successfully !!!!!")
+               messages.success(request, "Data uploaded successfully")
                return redirect("/inputdata")
           else:
                return render(request, 'input_data.html')
@@ -117,7 +117,7 @@ def selection(request):
 
               return render(request, 'dataview.html', context)
           else:
-                messages.error(request, "!!!! course or semster or exam_type does not exist !!!!!")
+                messages.error(request, "course or semster or exam_type does not exist")
                 return redirect("/selection_page")
      else:
           return render(request, 'selection_page.html')
@@ -217,20 +217,18 @@ def verify_email(request):
                      token = default_token_generator.make_token(user)
                      uid = urlsafe_base64_encode(force_bytes(user.pk))
                      reset_link = f"http://127.0.0.1:8000/reset-password/{uid}/{token}/"
-                     print(reset_link)
                      msg = EmailMultiAlternatives(
-                           subject='Password Reset',
-                         #   body=render_to_string('reset_email.html', {'reset_link': reset_link}),
+                           subject='Password reset request',
                            from_email='noreply.result.mail@gmail.com',
                            to=[email],
                      )
-                     msg.attach_alternative(render_to_string('reset_email.html', {'reset_link': reset_link}), 'text/html')
+                     msg.attach_alternative(render_to_string('reset_email.html', {'reset_link': reset_link}), 'text/html' )
                      msg.send()
-                     messages.success(request, "Email sent successfully")
+                     messages.success(request, "Email sent , check your mail box")
                      return redirect("/verify_user")
           
                else:
-                    messages.error(request, "!!!! Email does not exist !!!!!")
+                    messages.error(request, "Email does not exist")
                     return redirect("/verify_user")
                
           else:
@@ -254,24 +252,22 @@ def reset_password(request, uid, token):
            confirm_password=request.POST.get('confirm_password')
            if password !=confirm_password :
                 messages.error(request, 'Passwords does not match')
-                return redirect("/forgot_password")
+               #  return render(request, 'forgot.html')
+                return redirect(request.path)
            else:
                 user.set_password(password)
                 user.save()
                 login(request, user)
-                messages.success(request, 'Your password has been successfully reset.')
-                return redirect('/')
+                messages.success(request, 'Your password has been changed successfully.')
+                return redirect('/student_login')
         else:
             # Display password reset form
-          return render(request, 'forgot.html')
+           return render(request, 'forgot.html')
      else:
         # Invalid user or token, display error message and redirect
         messages.error(request, 'The link is invalid or has expired.')
-        return redirect('/verify_user')
-     
+        return redirect('/verify_user')  
 
-def forgot(request):
-     return render(request, "forgot.html")     
 
 def service(request):
      return render(request , 'service_page.html')
@@ -296,3 +292,10 @@ def update_notice(request):
 
 def custom_404_view(request, exception):
     return render(request, 'page_error.html', status=404)
+
+
+def forgot(request):
+     return render(request, 'forgot.html')
+
+def custom_404_page(request):
+     return render(request , '404.html')

@@ -5,28 +5,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Change password</title>
-    <link rel="stylesheet" href="static\css_forgot.css">
+    <link rel="stylesheet" href="\static\css_forgot.css">
 </head>
 <body>
-    <form method="post" action=" ">
-        {% csrf_token %}
+    <div class="main-container">
         {% if messages %}
-    <div class="alert {% for message in messages %}{% if 'success' in message.tags %}alert-success{% elif 'error' in message.tags %}alert-danger{% endif %}{% endfor %}">
-        {% for message in messages %}
-        {{ message }}
-        {% endfor %}
-    </div>
-    {% endif %}
-        <div class="container">
-            <div class="input">
-                <div class="title"><b>Change password</b></div><br>
-                <input type="password" name="password" placeholder="New password" autocomplete="off" required><br>
-                <input type="password" name="confirm_password" placeholder="Re-enter password" autocomplete="off" required><br>
-            </div>
-            <button type="submit">Login</button>
-            <div class="note">
+        <div class="alert {% for message in messages %}{% if 'success' in message.tags %}alert-success{% elif 'error' in message.tags %}alert-danger{% endif %}{% endfor %}">
+            {% for message in messages %}
+            {{ message }}
+            {% endfor %}
         </div>
-    </form>
+        {% endif %}
+        <section class="container-content">
+            <form action=""  method="post">
+                {% csrf_token %}
+                
+                <h1 class="title1" id="student">Change password</h1>
+                
+                <div class="input">
+                    <label for="userlogin" class="new-pass">New password</label><br>
+                    <span1></span1>
+                    <input type="password" id="userlogin" name="password" class="password1" required autofocus autocomplete="off"><br>
+                    <label for="userpass" class="pass-again">Password again</label><br>
+                    <span2></span2>
+                    <input type="password" id="userpass" name="confirm_password" class="password2" required autocomplete><br>
+                    <button type="submit" class="btn">Submit change</button>
+                </div>
+            </form>
+        </section>
+    </div>
 </body>
 
 </html>
