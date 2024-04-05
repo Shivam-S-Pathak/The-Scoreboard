@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DataView Page</title>
     <style>
-        .logout-dataview{
+        .logout-dataview {
             position: absolute;
             left: 90%;
             text-decoration: none;
@@ -140,61 +140,121 @@
                     {% if result.pdf1%}
                     <td><a href="{{ result.pdf1.url}}">view pdf</a></td>
                     {% else %}
-    <td>N/A</td>
+                    <td>N/A</td>
                     {% endif %}
 
                 </tr>
                 {% endif %}
 
 
-                {% if result.subject2 %}  
+                {% if result.subject2 %}
                 <tr>
-                <td>{{ result.subject2}}</td>
-                <td>{{ result.marks2}}</td>
-                {% if result.pdf2%}
-                <td><a href="{{ result.pdf2.url}}">view pdf</a> </td>
-                {% else %}
-    <td>N/A</td>
-                {% endif %}
+                    <td>{{ result.subject2}}</td>
+                    <td>{{ result.marks2}}</td>
+                    {% if result.pdf2%}
+                    <td><a href="{{ result.pdf2.url}}">view pdf</a> </td>
+                    {% else %}
+                    <td>N/A</td>
+                    {% endif %}
                 </tr>
                 {% endif %}
 
 
-                {% if result.subject3 %} 
+                {% if result.subject3 %}
                 <tr>
-                <td>{{ result.subject3}}</td>
-                <td>{{ result.marks3}}</td>
-                {% if result.pdf3%}
-                <td><a href="{{ result.pdf3.url}}">view pdf</a></td>
-                {% else %}
-    <td>N/A</td>
-                {% endif %}
+                    <td>{{ result.subject3}}</td>
+                    <td>{{ result.marks3}}</td>
+                    {% if result.pdf3%}
+                    <td><a href="{{ result.pdf3.url}}">view pdf</a></td>
+                    {% else %}
+                    <td>N/A</td>
+                    {% endif %}
                 </tr>
                 {% endif %}
 
                 {% if result.subject4 %}
                 <tr>
-                <td>{{ result.subject4}}</td>
-                <td>{{ result.marks4}}</td>
-                {% if result.pdf4%}
-                <td> <a href="{{ result.pdf4.url}}">view pdf</a></td>
-                {% else %}
-    <td>N/A</td>
-                {% endif %}
+                    <td>{{ result.subject4}}</td>
+                    <td>{{ result.marks4}}</td>
+                    {% if result.pdf4%}
+                    <td> <a href="{{ result.pdf4.url}}">view pdf</a></td>
+                    {% else %}
+                    <td>N/A</td>
+                    {% endif %}
                 </tr>
                 {% endif %}
 
                 {% if result.subject5 %}
                 <tr>
-                <td>{{ result.subject5}}</td>
-                <td>{{ result.marks5}}</td>
-                {% if result.pdf5%}
-                <td><a href="{{ result.pdf5.url}}">view pdf</a></td>
-                {% else %}
-    <td>N/A</td>
-                {% endif %}
+                    <td>{{ result.subject5}}</td>
+                    <td>{{ result.marks5}}</td>
+                    {% if result.pdf5%}
+                    <td><a href="{{ result.pdf5.url}}">view pdf</a></td>
+                    {% else %}
+                    <td>N/A</td>
+                    {% endif %}
                 </tr>
-                {% endif %} 
+                {% endif %}
+
+                {% if result.subject6 %}
+                <tr>
+                    <td>{{ result.subject6}}</td>
+                    <td>{{ result.marks6}}</td>
+                    {% if result.pdf6%}
+                    <td><a href="{{ result.pdf5.url}}">view pdf</a></td>
+                    {% else %}
+                    <td>N/A</td>
+                    {% endif %}
+                </tr>
+                {% endif %}
+
+                {% if result.subject7 %}
+                <tr>
+                    <td>{{ result.subject7}}</td>
+                    <td>{{ result.marks7}}</td>
+                    {% if result.pdf7%}
+                    <td><a href="{{ result.pdf5.url}}">view pdf</a></td>
+                    {% else %}
+                    <td>N/A</td>
+                    {% endif %}
+                </tr>
+                {% endif %}
+
+                {% if result.subject8 %}
+                <tr>
+                    <td>{{ result.subject8}}</td>
+                    <td>{{ result.marks8}}</td>
+                    {% if result.pdf8%}
+                    <td><a href="{{ result.pdf5.url}}">view pdf</a></td>
+                    {% else %}
+                    <td>N/A</td>
+                    {% endif %}
+                </tr>
+                {% endif %}
+
+                {% if result.subject9 %}
+                <tr>
+                    <td>{{ result.subject9}}</td>
+                    <td>{{ result.marks9}}</td>
+                    {% if result.pdf9%}
+                    <td><a href="{{ result.pdf5.url}}">view pdf</a></td>
+                    {% else %}
+                    <td>N/A</td>
+                    {% endif %}
+                </tr>
+                {% endif %}
+
+                {% if result.subject10 %}
+                <tr>
+                    <td>{{ result.subject10}}</td>
+                    <td>{{ result.marks10}}</td>
+                    {% if result.pdf10%}
+                    <td><a href="{{ result.pdf5.url}}">view pdf</a></td>
+                    {% else %}
+                    <td>N/A</td>
+                    {% endif %}
+                </tr>
+                {% endif %}
 
                 {% endfor %}
             </tbody>

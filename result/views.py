@@ -67,35 +67,83 @@ def datainput(request):
                branch=request.POST.get('branch')
                Sem=request.POST.get('sem')
                exam_type=request.POST.get('exam_type')
+
                Sub1=request.POST.get('sub1')
                M1=request.POST.get('m1')
                pdf_files1=request.FILES.get('pdf_file1')
+
                Sub2=request.POST.get('sub2')
                M2=request.POST.get('m2')
                pdf_files2=request.FILES.get('pdf_file2')
+
                Sub3=request.POST.get('sub3')
                M3=request.POST.get('m3')
                pdf_files3=request.FILES.get('pdf_file3')
+
                Sub4=request.POST.get('sub4')
                M4=request.POST.get('m4')
                pdf_files4=request.FILES.get('pdf_file4')
-               Sub5=request.POST.get('sub5')
-               M5=request.POST.get('m5')
+
+               Sub5=request.POST.get('sub5', "")
+               M5=request.POST.get('m5', 0)
                pdf_files5=request.FILES.get('pdf_file5')
-               totaling=request.POST.get('total')
-               result=request.POST.get('result')
+
+               Sub6=request.POST.get('sub6',"")
+               M6=request.POST.get('m6', 0)
+               pdf_files6=request.FILES.get('pdf_file6')
+
+               Sub7=request.POST.get('sub7',"")
+               M7=request.POST.get('m7' , 0)
+               pdf_files7=request.FILES.get('pdf_file7')
+
+               Sub8=request.POST.get('sub8' ,"")
+               M8=request.POST.get('m8', 0)
+               pdf_files8=request.FILES.get('pdf_file8')
+
+               Sub9=request.POST.get('sub9',"")
+               M9=request.POST.get('m9', 0)
+               pdf_files9=request.FILES.get('pdf_file9')
+
+               Sub10=request.POST.get('sub10',"")
+               M10=request.POST.get('m10', 0)
+               pdf_files10=request.FILES.get('pdf_file10')
+
+               totaling=request.POST.get('total',0)
+               result=request.POST.get('result',"")
                content=Result(student_name=Name , enrollment_no=Enrollment ,
                                course_id= C_id , course_name=C_name , Branch=branch , 
-                               semester=Sem , exam=exam_type , subject1=Sub1 , marks1=M1 ,
+                               semester=Sem , exam=exam_type , 
+
+                               subject1=Sub1 , marks1=M1 ,
                                pdf1=pdf_files1 ,
+
                                subject2=Sub2 , marks2=M2 ,
                                  pdf2=pdf_files2 ,
+
                                subject3=Sub3 , marks3=M3 ,
                                  pdf3=pdf_files3 ,
+
                                  subject4=Sub4 , marks4=M4 , 
                                  pdf4=pdf_files4 ,
+
                                  subject5=Sub5 , marks5=M5 , 
                                pdf5=pdf_files5 ,
+
+                                 subject6=Sub6 , marks6=M6 , 
+                               pdf6=pdf_files6 ,
+
+                                 subject7=Sub7 , marks7=M7 , 
+                               pdf7=pdf_files7 ,
+
+                                 subject8=Sub8 , marks8=M8 , 
+                               pdf8=pdf_files8 ,
+
+                                 subject9=Sub9 , marks9=M9 , 
+                               pdf9=pdf_files9 ,
+
+                                 subject10=Sub10 , marks10=M10 , 
+                               pdf10=pdf_files10 ,
+
                                Total=totaling , res=result)
                content.save()
                messages.success(request, "Data uploaded successfully")

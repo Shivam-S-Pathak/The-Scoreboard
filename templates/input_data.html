@@ -3,103 +3,178 @@
 {% block page_css %}
 <link rel="stylesheet" href="static\css_input_data.css">
 {% endblock page_css %}
-    
+
 {% block title %}
-    Fill result data
+Fill result data
 {% endblock title %}
 
 {% block body %}
-    
-    <form method="post" action=" " enctype="multipart/form-data">
-        {% csrf_token %}
-        
+
+<form method="post" action=" " enctype="multipart/form-data" id="student-form">
+    {% csrf_token %}
+
+
+    <div class="form-container">
+        <header>
+            <h2>Enter the data here</h2>
+        </header>
         {% if messages %}
-        <div class="alert {% for message in messages %}{% if 'success' in message.tags %}alert-success{% elif 'error' in message.tags %}alert-danger{% endif %}{% endfor %}">
+        <div
+            class="alert {% for message in messages %}{% if 'success' in message.tags %}alert-success{% elif 'error' in message.tags %}alert-danger{% endif %}{% endfor %}">
             {% for message in messages %}
             {{ message }}
             {% endfor %}
         </div>
         {% endif %}
-        <div class="container">
-            <a href="/signupteachers" class="new_teaacher">signup new teacher</a><br><br>
-            Student Name: <input type="text" name="Name" id="Name" required><br>
-            <br>
-            Enrollment number: <input type="text" name="Enrollment" id="Enrollment_no" required> <br>
-            <br>
-            Course id:
-            <select name="c_id" id="c_id">
-                <option value="">--Select your course id--</option>
-                <option value="11">for B.Tech</option>
-                <option value="12">for B.E.</option>
-                <option value="13">for B.Sc.</option>
-                <option value="14">for B.com</option>
-            </select><br>
-            <br>
-            Course Name:
-            <select name="c_name" id="c_name">
-                <option value="">--Select your course name--</option>
-                <option value="B.Tech">B.Tech</option>
-                <option value="B.E.">B.E.</option>
-                <option value="B.Sc">B.Sc.</option>
-                <option value="B.com">B.com</option>
-            </select><br>
-            <br>
-            Branch:
-            <select name="branch" id="branch">
-                <option value="">--Select the Branch--</option>
-                <option value="Computer science engineering">CSE</option>
-                <option value="Machenical engineering">ME</option>
-                <option value="Civil engineering">CE</option>
-                <option value="Electronics engineering">EX</option>
-            </select><br>
-            <br>
-            semester:
-            <select name="sem" id="sem">
-                <option value="">--Select semster--</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-            </select><br>
-            <br>
-            Exam Type:
-            <select name="exam_type" id="exam_type">
-                <option value="">--Select exam type--</option>
-                <option value="MST-1">MST-1</option>
-                <option value="MST-2">MST-2</option>
-                <option value="Final">Final</option>
-            </select><br>
-            <br>
-            Subject1 : <input type="text" name="sub1" id="" placeholder="Enter the subject name " required>
-            Marks1 : <input type="text" name="m1" id="" placeholder="Enter the marks of subject 1" required><br>
-            PDF of subject1: <input type="file" name="pdf_file1" id="pdf_file1"><br>
-            <br>
-            Subject2 : <input type="text" name="sub2" id="" placeholder="Enter the subject name " required>
-            Marks2 : <input type="text" name="m2" id="" placeholder="Enter the marks of subject 2" required><br>
-            PDF of subject2: <input type="file" name="pdf_file2" id="pdf_file2"><br>
-            <br>
-            Subject3 : <input type="text" name="sub3" id="" placeholder="Enter the subject name " required>
-            Marks3 : <input type="text" name="m3" id="" placeholder="Enter the marks of subject 3" required><br>
-            PDF of subject3: <input type="file" name="pdf_file3" id="pdf_file3"><br>
-            <br>
-            Subject4 : <input type="text" name="sub4" id="" placeholder="Enter the subject name " required>
-            Marks4 : <input type="text" name="m4" id="" placeholder="Enter the marks of subject 4" required><br>
-            PDF of subject4: <input type="file" name="pdf_file4" id="pdf_file4"><br>
-            <br>
-            Subject5 : <input type="text" name="sub5" id="" placeholder="Enter the subject name ">
-            Marks5 : <input type="text" name="m5" id="" placeholder="Enter the marks of subject 5"><br>
-            PDF of subject5: <input type="file" name="pdf_file5" id="pdf_file5"><br>
-            <br>
-            Total: <input type="text" name="total" id="total" required><br>
-            <br>
-            result verdict: <input type="text" name="result" id="result" placeholder="PASS or FAIL" required><br>
-            <br>
-            <hr>
-            <button type="submit">Submit</button>
+        <table id="subjects-table">
+            <tbody>
+                <tr>
+                    <th><label for="student_name">Student Name:</label></th>
+                    <td><input type="text" name="Name" class="input-box" required autofocus></td>
+
+                    <th> <label for="enrollment_no">Enrollment No:</label></th>
+                    <td> <input type="text" name="Enrollment" class="input-box" required></td>
+
+                    <th><label for="semester">Branch:</label></th>
+                    <td>
+                        <select name="branch" id="branch" required>
+                            <option value="">--Select Branch--</option>
+                            <option value="Computer science engineering">CSE</option>
+                            <option value="Machenical engineering">ME</option>
+                            <option value="Civil engineering">CE</option>
+                            <option value="Electronics engineering">EX</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th><label for="course_id">Course ID:</label> </th>
+                    <td>
+                        <select name="c_id" id="c_id" required>
+                            <option value="">--Select course id--</option>
+                            <option value="11">for B.Tech</option>
+                            <option value="12">for B.E.</option>
+                            <option value="13">for B.Sc.</option>
+                            <option value="14">for B.com</option>
+                        </select>
+                    </td>
+
+                    <th><label for="course_name">Course Name:</label></th>
+                    <td>
+                        <select name="c_name" id="c_name" required>
+                            <option value="">--Select course name--</option>
+                            <option value="B.Tech">B.Tech</option>
+                            <option value="B.E.">B.E.</option>
+                            <option value="B.Sc">B.Sc.</option>
+                            <option value="B.com">B.com</option>
+                        </select>
+                    </td>
+
+                    <th><label for="semester">Semester:</label></th>
+                    <td>
+
+                        <select name="sem" id="sem" required>
+                            <option value="">--Select semster--</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <label for=""><b>_________________________________________________________</b></label>
+                    </th>
+                    <td></td>
+                    <th><label for="exam">Exam:</label></th>
+                    <td>
+                        <select name="exam_type" id="exam_type" required>
+                            <option value="">--Select exam type--</option>
+                            <option value="MST-1">MST-1</option>
+                            <option value="MST-2">MST-2</option>
+                            <option value="Final">Final</option>
+                        </select>
+                    </td>
+                    <th>
+                        <label for=""><b>___________________________________________________</b></label>
+                    </th>
+                    <td></td>
+                </tr>
+
+
+
+
+                <tr>
+                    <th> <label for="subject_name">Subject Name:</label></th>
+                    <td> <input type="text" name="sub1" class="input-box" required></td>
+
+                    <th><label for="subject_marks">Marks:</label></th>
+                    <td><input type="text" name="m1" class="input-box" required></td>
+
+                    <th><label for="subject_marks">PDF:</label></th>
+                    <td><input id="file-upload" type="file" name="pdf_file1" class="input-box"></td>
+
+                </tr>
+
+                <tr>
+                    <th> <label for="subject_name">Subject Name:</label></th>
+                    <td> <input type="text" name="sub2" class="input-box" required></td>
+
+                    <th><label for="subject_marks">Marks:</label></th>
+                    <td><input type="text" name="m2" class="input-box" required></td>
+
+                    <th><label for="subject_marks">PDF:</label></th>
+                    <td><input id="file-upload" type="file" name="pdf_file2" class="input-box"></td>
+
+                </tr>
+
+                <tr>
+                    <th> <label for="subject_name">Subject Name:</label></th>
+                    <td> <input type="text" name="sub3" class="input-box" required></td>
+
+                    <th><label for="subject_marks">Marks:</label></th>
+                    <td><input type="text" name="m3" class="input-box" required></td>
+
+                    <th><label for="subject_marks">PDF:</label></th>
+                    <td><input id="file-upload" type="file" name="pdf_file3" class="input-box"></td>
+
+                </tr>
+
+
+                <th> <label for="subject_name">Subject Name:</label></th>
+                <td> <input type="text" name="sub4" class="input-box" required></td>
+
+                <th><label for="subject_marks">Marks:</label></th>
+                <td><input type="text" name="m4" class="input-box" required></td>
+
+                <th><label for="subject_marks">PDF:</label></th>
+                <td><input id="file-upload" type="file" name="pdf_file4" class="input-box"></td>
+
+                <td><button type="button" class="add-subject-btn" id="add-subject" title="Add more subjects">+</button>
+                </td>
+                </tr>
+
+
+
+                <tr>
+                    <th><label for="result">Final verdict:</label></th>
+                    <td><input type="text" name="result" class="input-box" placeholder="PASS or FAIL" required></td>
+
+                    <th><label for="total">Total marks:</label></th>
+                    <td><input type="text" name="total" class="input-box" required></td>
+                </tr>
+
+            </tbody>
+        </table>
+
+        <div class="submit-btn">
+            <button type="submit" id="submit-btn">Submit</button>
         </div>
-    </form>
-    {% endblock body %}
+    </div>
+</form>
+<script src="static\upload_data.js"></script>
+{% endblock body %}
