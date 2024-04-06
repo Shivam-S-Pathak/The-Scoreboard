@@ -1,98 +1,141 @@
-
-h2 {
-    bottom: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: black;
-    letter-spacing: 2px;
-    height: 50px;
-    color: #fff;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background-image: url('image.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    /* background-position: 150px; */
-    /* background-color: #f4f4f4; */
+*{
     margin: 0;
     padding: 0;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    background-image: url('image.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-attachment: fixed;
 }
-
-.container {
-    width: 700px;
-    background-color: #c08d3a;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(9, 9, 9, 0.1);
-}
-
-.form-control {
-    margin-bottom: 20px;
-}
-
-label {
-    display: block;
-    font-weight: bold;
-}
-
-input[type="text"],
-input[type="tel"],
-input[type="email"],
-input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-}
-
-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-.note-wrapper {
-    /* background-color: aqua; */
-    border: 3px solid black;
+.container{
     display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(208, 206, 206, 0.3);
+    backdrop-filter: blur(10px);
+    height: 900px;
+    width: 800px;
     flex-direction: column;
-    gap: 25px;
-    height: 100px;
-    padding-top: 10px;
-    font-size: large;
-
+    border-radius: 40px 40px 40px 40px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    animation: group-animation 0.7s ease forwards;
 }
+@keyframes group-animation {
+    0% { transform: translateX(-100%); opacity: 0; }
+      100% { transform: translateX(0); opacity: 1; }
+  }
 
-span {
+
+.input-container{
     display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 0;
+    background-color: rgb(32, 29, 132);
+    height: 700px;
+    width: 650px;
+    border-radius: 20px 20px 20px 20px;
 }
+table {
+    border-collapse:separate;
+    border-spacing: 29px;
+}
+td {
+
+    padding: 10px;
+   
+}
+input[type="text"] , input[type="email"] , input[type="password"]  {
+    height: 30px;
+    width: 270px;
+    border-radius:100px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    color: rgb(32, 29, 132);
+    padding: 3%;
+    background-color: white;
+    border: none;
+}
+input[type="radio"]{
+    width: 20px;
+  height: 20px;
+  border: 0;
+  color: rgb(32, 29, 132);
+  border: none;
+}
+
+input:focus{
+    box-shadow : 0 0 20px 7px rgba(255, 153, 0, 0.649);
+    outline: none;
+}
+th{
+    border: 2px solid rgb(221, 157, 60);
+}
+
+label{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
+    font-size: 25px;
+    color: rgb(221, 157, 60);
+
+}
+button{
+    font-size: 25px;
+    border-radius: 100px;
+    height: 50px;
+    width: 250px;
+    border: none;
+    background-color: rgb(221, 157, 60);
+    color: rgb(32, 29, 132);
+    cursor:pointer;
+    font-family: comic Sans MS, serif;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+button:active {
+    border-color: rgb(221, 157, 60);
+    border-width: thick;
+    color: rgb(221, 157, 60);
+    background-color: rgb(32, 29, 132);
+    border:solid;
+    transform: scale(0.9);
+
+}
+.heading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(32, 29, 132);
+    height: 120px;
+    width: 380px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight:600;
+    color: rgb(221, 157, 60);
+    border-radius: 50% 50% 0 0;
+}
+p{
+    font-size: 35px;
+}
+
 .alert {
     display: flex;
-    justify-content: start;
-    align-items: start;
-    margin-bottom: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     white-space: nowrap;
-    font-size: 150%;
-    padding: 2%;
-    left:21%;
-    
+    font-size: 25px;
+    padding: 1.5%;
     animation: morphTransition 0.2s ease-in-out forwards;
 
 }

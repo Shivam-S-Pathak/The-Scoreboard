@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Password Reset</title>
+    <title>Password Reset |The Scoreboard</title>
     <style>
         p{
             color: black;
@@ -11,7 +11,7 @@
     </style>
 </head>
 <body>
-    <p>Hello,{{username}}<br>
+    <p>Hello,{{user.username}}<br>
         You are receiving this email because a password reset request was made for your account.</p>
     <p>Please click the following link to reset your password:</p>
     <a href="{{ reset_link }}">{{ reset_link }}</a>

@@ -4,58 +4,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signup Form for Students</title>
+    <title>Student Signup |The Scoreboard</title>
+    <link rel="apple-touch-icon" sizes="152x152" href="/static/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png">
+<link rel="manifest" href="/static/site.webmanifest">
+<link rel="mask-icon" href="/static/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="static\css_students_signup.css">
 </head>
 
 <body>
-    <div class="container">
+    <main>
         <form method="post" action=" ">
+            <div class="container">
             {% csrf_token %}
-            <h2>Signup Form for Students </h2>
-            <div class="form-control">
-                <label for="user-type">NOTE:</label> <br>
-                <div class="note-wrapper">
-                    {% if messages %}
-                    <div class="alert {% for message in messages %}{% if 'success' in message.tags %}alert-success{% elif 'error' in message.tags %}alert-danger{% endif %}{% endfor %}">
-                        {% for message in messages %}
-                        {{ message }}
-                        {% endfor %}
-                    </div>
-                    {% endif %}
-                    <span><input type="radio" name="user_type" id="Students" value="Students" required>
-                        <label for="Students">I declare that I'm a enrolled student with this college and all the
-                            informations provided here is true as per my knowledge</label></span>
+            <div class="heading">
+                <p>Student Signup form</p>
+            </div>
+            <div class="input-container">
+                {% if messages %}
+                <div class="alert {% for message in messages %}{% if 'success' in message.tags %}alert-success{% elif 'error' in message.tags %}alert-danger{% endif %}{% endfor %}">
+                    {% for message in messages %}
+                    {{ message }}
+                    {% endfor %}
                 </div>
+                {% endif %}
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <label for="firstName">First name</label><br>
+                                <input type="text" id="first" name="first" required autofocus autocomplete="off">
+                            </td>
+
+                            <td>
+                                <label for="lastName">Last name</label><br>
+                                <input type="text" id="last" name="last" required autocomplete="off">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <label for="userName">Enrollment no.</label><br>
+                                <input type="text" id="username" name="username" required autocomplete="off">
+                            </td>
+
+                            <td>
+                                <label for="email">Email</label><br>
+                                <input type="email" id="email" name="email" required autocomplete="off">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <label for="password">Password</label><br>
+                                <input type="password" id="password" name="password" required autocomplete="off">
+                            </td>
+
+                            <td>
+                                <label for="confirmPassword">Confirm password</label><br>
+                                <input type="password" id="confirm_password" name="confirm_password" required autocomplete="off">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <table>
+                    <tbody>
+                        <tr>
+                        <th>
+                            <td>
+                                <input type="radio" name="user_type" id="Students" value="Students" required autocomplete="off">
+                            </td>
+                            <td>
+                                <label for="declaration" class="informatiom">I declare that I'm enrollred student with St.
+                                    Aloysius institute of technology and all the informatiom given here is true as per
+                                    myknowledge </label>
+                            </td>
+                        </th>
+                        </tr>
+                    </tbody>
+                </table>
+                <button type="submit">Sign up</button>
             </div>
-            <div class="form-control">
-                <label for="first-name">First Name:</label>
-                <input type="text" id="first" name="first" required autofocus>
-            </div>
-            <div class="form-control">
-                <label for="last-name">Last Name:</label>
-                <input type="text" id="last" name="last" required>
-            </div>
-            <div class="form-control">
-                <label for="enrollment-number">Enrollment Number:</label>
-                <input type="text" id="enrollment-number" name="username" required
-                    placeholder="This will be treated as your username for login">
-            </div>
-            <div class="form-control">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-control">
-                <label for="password">Password:</label>                
-                <input type="password" id="passwordInput" name="password" required>
-            </div>
-            <div class="form-control">
-                <label for="confirm-password">Confirm Password:</label>
-                <input type="password" id="confirm_password" name="confirm_password" required>
-            </div>
-            <button type="submit">Sign Up</button>
+
+
+        </div>
         </form>
-    </div>
+    </main>
+    <script src="script_teachers_signup.js"></script>
 </body>
 
 </html>

@@ -131,11 +131,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
-MEDIA_URLS ='/media/'
+
+MEDIA_URL = '/media/' 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 STATICFILES_DIRS = [
-    BASE_DIR / "static"
+     os.path.join(BASE_DIR, "static")
     ]
 
 MESSAGE_TAGS = {
@@ -153,3 +154,5 @@ EMAIL_DEBUG = True
 
 
 LOGIN_URL = '/teachers_login'
+
+SESSION_EXPIRE_AT_BROWSER_CLOSE =True

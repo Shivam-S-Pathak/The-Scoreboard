@@ -12,17 +12,17 @@ document.getElementById('add-subject').addEventListener('click', () => {
         let headerCell1 = document.createElement("th");
         headerCell1.innerHTML = '<label for="subject_name">Subject Name:</label>';
         newRow.appendChild(headerCell1);
-        newRow.insertCell(1).innerHTML = '<td><input type="text" name="sub' + count + '" class="input-box"></td>';
+        newRow.insertCell(1).innerHTML = '<td><input type="text" name="sub' + count + '" class="input-box" autocomplete="off"></td>';
 
         let headerCell2 = document.createElement("th");
         headerCell2.innerHTML = '<label for="subject_name">Marks:</label>';
         newRow.appendChild(headerCell2);
-        newRow.insertCell(3).innerHTML = '<td><input type="text" name="m' + count + '" class="input-box"></td>';
+        newRow.insertCell(3).innerHTML = '<td><input type="text" name="m' + count + '" class="input-box" autocomplete="off"></td>';
 
         let headerCell3 = document.createElement("th");
         headerCell3.innerHTML = '<label for="subject_name">PDF:</label>';
         newRow.appendChild(headerCell3);
-        newRow.insertCell(5).innerHTML = '<td><input id="file-upload" type="file" name="pdf_file' + count + '" class="input-box" ></td>';
+        newRow.insertCell(5).innerHTML = '<td><input id="file-upload" type="file" name="pdf_file' + count + '" class="input-box" autocomplete="off"></td>';
         newRow.insertCell(6).innerHTML = '<td><button type="button" class="remove-subject" id="second" title="Remove this subject">✕</button></td>';
         count++;
     } else {

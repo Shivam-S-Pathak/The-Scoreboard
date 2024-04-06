@@ -216,7 +216,7 @@ def signup_teachers(request):
              return redirect("/teachers_login")
      except:
           return HttpResponse("Something went wrong try again")
-
+     
      return render(request, 'signup_teachers.html')
 
 
@@ -247,10 +247,10 @@ def signup_students(request):
              group = Group.objects.get(name=group_name)
              user.groups.add(group)
              messages.success(request, 'Signed up successfully')
-             return redirect("/signupstudents")
+             return redirect("/student_login")
      except:
           return HttpResponse("Something went wrong try again")
-
+    
      return render(request, 'signup_students.html')
 
 
@@ -316,7 +316,7 @@ def reset_password(request, uid, token):
         messages.error(request, 'The link is invalid or has expired.')
         return redirect('/verify_user')  
 
-
+@login_required 
 def service(request):
      return render(request , 'service_page.html')
 
@@ -338,8 +338,6 @@ def update_notice(request):
                return render(request, "notice_updates.html", context)
           
 
-def custom_404_view(request, exception):
-    return render(request, 'page_error.html', status=404)
 
 
 def forgot(request):

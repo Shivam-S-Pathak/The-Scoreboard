@@ -1,0 +1,83 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap:10px;
+    width: 800px;
+  }
+  th, td {
+    padding: 1%;
+    border: 1px solid #000000;
+  }
+  th{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: #f2f2f2;
+  }
+  td{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  table{
+    border: 2px solid #000;
+    border-collapse: collapse;
+  }
+
+.t1{
+    font-size: 37px;
+    font-weight: 600;
+    font-family:Arial, Helvetica, sans-serif;
+    text-align: center;
+    width: 720px;
+    height: 80px;
+
+   
+}
+.student-info{
+    text-align:left;
+    width: 720px;
+    height: 150px;
+    gap: 3px;
+    text-wrap: nowrap;
+
+}
+.Result{
+    text-align: center;
+    width: 720px;
+    height: 100px;
+    gap: 3px;
+
+}
+.subject{
+    text-align: center;
+    width: 720px;
+    height: 500px;
+    gap: 3px;
+}
+button{
+    height: 30px;
+    width: 80px;
+    background-color: rgb(132, 132, 245);
+    border: none;
+    font-family:monospace;
+    font-size: larger;
+    color: blanchedalmond;
+
+}
+button:active{
+    transform: scale(0.9);
+}
+.back{
+   margin-left: 90%;
+}
+.btn{
+    background-color: red;
+    font-size:25px;
+    height: 50px;
+    width: 100px;
+}

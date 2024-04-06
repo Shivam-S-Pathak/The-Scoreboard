@@ -21,7 +21,6 @@ body {
     backdrop-filter: blur(10px);
     border-radius: 3cap;
 }
-
 .input {
     position: absolute;
     top: 20%;

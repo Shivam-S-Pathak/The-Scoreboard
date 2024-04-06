@@ -11,6 +11,8 @@
 }
 
 .curved-div {
+    display: flex;
+    flex-direction: column;
     margin-top: 1%;
     background-color: rgb(32, 29, 132 ,0.5);
     height: 95vh;
@@ -20,16 +22,8 @@
     backdrop-filter: blur(20px);
 
 }
-
 .curved-div::-webkit-scrollbar {
-    display: none;
-}
-
-.bottom{
-    background-color:rgb(221, 157, 60);
-    height: 9vh;
-    position: sticky;
-    bottom: 0;
+    display:none;
 }
 
 p {
@@ -42,7 +36,7 @@ p {
     font-size: 150%;
     margin-left: 10%;
     margin-right: 10%;
-    margin-bottom: 30%;
+    /* margin-bottom: 75vh; */
     white-space: pre-wrap;
 
 }
