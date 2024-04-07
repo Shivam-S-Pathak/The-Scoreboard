@@ -18,8 +18,12 @@ from django.contrib import admin
 from django.urls import path,include
 
 
+admin.site.site_header = 'THE SCOREBOARD adminstration'
+admin.site.site_title = 'THE SCOREBOARD adminstration'
+admin.site.index_title = 'Welcome to SCOREBOARD Admin Portal'
+
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('shivam.SCOREBOARD/', admin.site.urls),
     path('',include('result.urls')),
 ]
