@@ -140,7 +140,7 @@ input[type="text"] {
     font-weight: 500;
 }
 
-input[type="password"] {
+#userpass {
     position: absolute;
     top: 55%;
     font-size: 250%;
@@ -156,6 +156,25 @@ input:focus{
     box-shadow : 0 0 20px 7px rgba(255, 153, 0, 0.649);
     outline: none;
 }
+
+.passReavealBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 64%;
+    left: 85%;
+    z-index: 2;
+    transform: translateY(-50%);
+    height: 75px;
+    width: 50px;
+    background-color: #fff;
+    font-size: 35px;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.9s ease-in-out;
+}
+
 .username {
     position: absolute;
     top: 10%;

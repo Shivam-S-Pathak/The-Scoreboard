@@ -136,7 +136,7 @@ input[type="text"] {
     font-weight: 500;
 }
 
-input[type="password"] {
+#userpass {
     position: absolute;
     top: 55%;
     font-size: 250%;
@@ -185,6 +185,24 @@ span2 {
     border-right: 25px solid transparent;
     border-left: 25px solid transparent;
 }
+.passReavealBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 64%;
+    left: 85%;
+    z-index: 2;
+    transform: translateY(-50%);
+    height: 75px;
+    width: 50px;
+    background-color: #fff;
+    font-size: 35px;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.9s ease-in-out;
+}
+
 
 .Forgot-password {
     color: rgb(32, 29, 132);

@@ -136,6 +136,24 @@ span2 {
     border-right: 25px solid transparent;
     border-left: 25px solid transparent;
 }
+.passReavealBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 31.5%;
+    left: 85%;
+    z-index: 2;
+    transform: translateY(-50%);
+    height: 75px;
+    width: 50px;
+    background-color: #fff;
+    font-size: 35px;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.9s ease-in-out;
+}
+
 
 input:focus{
     box-shadow : 0 0 20px 7px rgba(255, 153, 0, 0.649);

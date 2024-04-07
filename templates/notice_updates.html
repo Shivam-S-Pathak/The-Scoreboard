@@ -4,21 +4,39 @@
 Update Notice Board
 {% endblock title %}
 
+{% block page_css %}
+  <link rel="stylesheet" href="static\css_noticeUpdate.css">
+{% endblock page_css %}
+
 {% block body %}
 <form action=" " method="post">
     {% csrf_token %}
 
-    Enter the Notice here: <textarea name="updatenotice" id="updatenotice" cols="30"
-        rows="10">{{notice.notice}}</textarea>
-    <button type="submit">Submit</button>
-
-    {% if messages %}
+    
+<div class="main-container">
+<div class="container">
+            <div class="notice-form">
+                <div class="heading">
+                <h2>Notice update portal</h2>
+            </div>
+            {% if messages %}
     <div
-        class="alert {% for message in messages %}{% if 'success' in message.tags %}alert-success{% elif 'error' in message.tags %}alert-danger{% endif %}{% endfor %}">
-        {% for message in messages %}
-        {{ message }}
-        {% endfor %}
+    class="alert {% for message in messages %}{% if 'success' in message.tags %}alert-success{% elif 'error' in message.tags %}alert-danger{% endif %}{% endfor %}">
+    {% for message in messages %}
+    {{ message }}
+    {% endfor %}
+</div>
+{% endif %}
+                <div class="Textsizechange">
+                    <button class="decrease-btn">-</button>
+                    <button class="increase-btn">+</button>
+                </div>
+                <textarea id="textarea" name="updatenotice" placeholder="Enter your notice here..." rows="25" cols="45"
+                    required>{{notice.notice}}</textarea><br>
+                <button type="submit">Update</button>
+            </div>
+        </div>
     </div>
-    {% endif %}
-</form>
-{% endblock body %}
+    </form>
+    <script src="static\noticeUpdate.js"></script>
+        {% endblock body %}

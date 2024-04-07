@@ -68,6 +68,7 @@ input[type="text"] , input[type="email"] , input[type="password"]  {
     background-color: white;
     border: none;
 }
+
 input[type="radio"]{
     width: 20px;
   height: 20px;
@@ -75,6 +76,25 @@ input[type="radio"]{
   color: rgb(32, 29, 132);
   border: none;
 }
+
+.passReavealBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 58.2%;
+    left: 44%;
+    z-index: 2;
+    transform: translateY(-50%);
+    height: 32px;
+    width: 31px;
+    background-color: #fff;
+    font-size: 30px;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.9s ease-in-out;
+}
+
 
 input:focus{
     box-shadow : 0 0 20px 7px rgba(255, 153, 0, 0.649);
