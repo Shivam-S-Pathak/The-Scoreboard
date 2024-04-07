@@ -17,60 +17,70 @@
 </head>
 
 <body>
-  <a href="/logout">Logout</a>
-  {% if messages %}
-  <div class="alert {% for message in messages %}{% if 'success' in message.tags %}alert-success{% elif 'error' in message.tags %}alert-danger{% endif %}{% endfor %}">
-    {% for message in messages %}
-    {{ message }}
-    {% endfor %}
-  </div>
-  {% endif %}
-  <div class="main">
-    <section class="sub">
-      <form action="" method="post">
-        {% csrf_token %}
-        <span1></span1>
-        <select name="course" id="" class="caurse" required>
-          <option value="">---Select your course---</option>
-          <option value="11">B.Tech</option>
-          <option value="12">B.E.</option>
-          <option value="13">B.Sc</option>
-          <option value="14">B.com</option>
-        </select>
-        <div class="one">
-          <h2 id="ca">COURSE</h2>
-        </div>
-        <span2></span2>
-        <select id="" class="sem" name="semester" required>
-          <option value="">---Select Semester---</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-        </select>
-        <div class="two">
-          <h2 id="sem">SEMESTER</h2>
-        </div>
-        <span3></span3>
-        <select class="exam" name="exam_type" id="" required>
-          <option value="">---Select Exam type---</option>
-          <option value="MST-1">MST-1</option>
-          <option value="MST-2">MST-2</option>
-          <option value="Final">Final</option>
-        </select>
-        <div class="three">
-          <h2 id="exam">EXAM</h2>
-        </div>
-        <button type="submit" class="btn">
-          Submit
-        </button>
-      </form>
-    </section>
-  </div>
-</body>
+  <form action="" method="post">
+    {% csrf_token %}
+  <header>
+    <div class="clhead">
+    <section><b>St Aloysius Insitute Of Technology,Jabalpur</b><section>
+    <div class="re"><b>Results</b></div>
+    </div>
+</header>
+{% if messages %}
+<div class="alert {% for message in messages %}{% if 'success' in message.tags %}alert-success{% elif 'error' in message.tags %}alert-danger{% endif %}{% endfor %}">
+{% for message in messages %}
+{{ message }}
+{% endfor %}
+</div>
+{% endif %}
+<div class="blur-container"></div>
+<div class="container">
+<div class="notice-form">
+<h2>Please Provide Your Details</h2>
+<div class="form-container">
+  <form id="courseForm">
+    <div class="form-group">
+      <label for="course">Course:</label>
+      <select id="course" name="course" required>
+        <option value="">---Select your course---</option>
+      <option value="11">B.Tech</option>
+      <option value="12">B.E.</option>
+      <option value="13">B.Sc</option>
+      <option value="14">B.com</option>
+        
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="exam">Exam:</label>
+      <select id="exam" name="exam_type" required>
+        <option value="">---Select Exam type---</option>
+      <option value="MST-1">MST-1</option>
+      <option value="MST-2">MST-2</option>
+      <option value="Final">Final</option>
+        
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="semester">Semester:</label>
+      <select id="semester" name="semester" required>
+        <option value="">---Select Semester---</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+        
+        
+      </select>
+    </div>
+    <button type="submit" class="btn-submit">Submit</button>
+  </form>
+</div>
+</div>
+</div>
+</form>
 
+</body>
 </html>

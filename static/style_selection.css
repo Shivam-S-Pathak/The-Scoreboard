@@ -1,203 +1,126 @@
 body {
-  width: 100vw;
-  height: 100vh;
-  background-image: url('image.jpg');
-  backdrop-filter: blur(5px);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  overflow: hidden;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: url('./image.jpg') center/cover no-repeat;
 }
-
-.one {
-  position: absolute;
-  top: 0;
-  left: 38%;
-  background-color: rgb(221, 157, 60);
-  /* display: inline; */
-  width: 175px;
-  height: 130px;
-  border-radius: 0 0 87.5px 87.5px;
-}
-
-.two {
-  position: absolute;
-  top: 0;
-  left: 52%;
-  background-color: rgb(221, 157, 60);
-  /* display: inline; */
-  width: 225px;
-  height: 300px;
-  border-radius: 0 0 112.5px 112.5px;
-}
-
-.three {
-  position: absolute;
-  top: 0;
-  left: 70%;
-  background-color: rgb(221, 157, 60);
-  width: 240px;
-  height: 460px;
-  border-radius: 0 0 130px 130px;
-}
-
-.sub {
-  position: absolute;
-  top: 6%;
-  left: 2%;
-  /* display: flex; */
-  height: 500px;
-  width: 90%;
-  padding: 50px;
-  background-color: rgb(32, 29, 132);
-}
-
-.main {
-  position: absolute;
-  top: 15%;
-  left: 10%;
-  background-color: rgb(221, 157, 60, 0.6);
-  backdrop-filter: blur(40px);
-  width: 1500px;
-  height: 700px;
-  border-radius: 25px;
-
-
-}
-
-#ca {
-  color: rgb(32, 29, 132);
-  font-size: 180%;
-  position: absolute;
-  top: 34%;
-  left: 20%;
-
-}
-
-#sem {
-
-  color: rgb(32, 29, 132);
-  font-size: 180%;
-  position: absolute;
-  top: 65%;
-  left: 43px;
-}
-
-#exam {
-  color: rgb(32, 29, 132);
-  font-size: 180%;
-  position: absolute;
-  top: 85%;
-  left: 35%;
-}
-
-input {
-  height: 10%;
-  width: 35%;
-}
-
-.caurse {
-  font-size:200%;
-  border-width: 0;
-  position: absolute;
-  top: 28%;
-  left: 13%;
-  height: 9%;
-  width: 35%;
-}
-
-.sem {
-  font-size: 200%;
-  border-width: 0;
-  position: absolute;
-  top: 57%;
-  left: 29%;
-  height: 9%;
-  width: 35%;
-
-}
-
-.exam {
-  font-size: 200%;
-  border-width: 0;
-  position: absolute;
-  top: 82.5%;
-  left: 47%;
-  height: 9%;
-  width: 35%;
-}
-
-span1 {
-  position: absolute;
-  top: 23%;
-  left: 43%;
-  border-bottom: 30px solid #fff;
-  border-right: 25px solid transparent;
-  border-left: 25px solid transparent;
-}
-
-span2 {
-  position: absolute;
-  top: 52.1%;
-  left: 59%;
-  border-bottom: 30px solid #fff;
-  border-right: 25px solid transparent;
-  border-left: 25px solid transparent;
-}
-
-span3 {
-  position: absolute;
-  top: 78%;
-  left: 77%;
-  border-bottom: 30px solid #fff;
-  border-right: 25px solid transparent;
-  border-left: 25px solid transparent;
-}
-
-.btn {
-  position: absolute;
-  font-size: 250%;
-  font-family: comic Sans MS, serif;
-  font-weight: bold;
-  top: 88%;
-  width: 200px;
-  height: 60px;
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  margin: 70px auto;
+  text-align: center;
+  background-color:  rgba(208, 206, 206, 0.383);
+  padding: 3%;
   border-radius: 30px;
-  background-color: rgb(221, 157, 60);
-  color: rgb(32, 29, 132);
+  backdrop-filter: blur(10px);
+}
+.notice-form {
+  border-radius: 10px;
+  width: 60%;
+  box-shadow: 0px 0px 20px rgb(32, 29, 132);
+  color:rgb(221, 157, 60);
+  padding: 3%;
 }
 
-.btn:active {
+.blur-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+
+  z-index: -1;
+}
+header{
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  background-color: rgb(32, 29, 132);
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(221, 157, 60);
+}
+
+h2{
+  font-size: 170%;
+  font-weight: bold;
+}
+.re{
+  text-align: center;
+  color: red;
+}
+section{
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: xx-large;
+}
+.clhead{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.form-container {
+  background-color: rgb(32, 29, 132 ,0.5);
+  border-radius: 8px;
+  padding: 2%;
+  width: 80%;
+  margin: 0 auto;
+
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-size: 150%;
+}
+
+select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.btn-submit {
+  background-color: rgb(221, 157, 60);
+  color: rgb(32, 29, 132);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 120%;
+  width: 100%;
+  font-family: comic Sans MS, serif;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-submit:active {
   border-color: rgb(221, 157, 60);
-  border-width: thick;
   color: rgb(221, 157, 60);
   background-color: rgb(32, 29, 132);
-
-}
-
-a {
-  font-size: 200%;
-  position: absolute;
-  left: 90%;
-  text-decoration: none;
-  background-color: rgb(240, 49, 49);
-  color: white;
-  padding: 5px 10px;
-  border-radius: 5px;
-
+  transform: scale(0.9);
 }
 
 .alert {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 100%;
-  white-space: nowrap;
   font-size: 150%;
   padding: 1%;
-  /* left:21%; */
-  margin-right: 30%;
-  margin-left: 30%;
+  margin-top: 3%;
+  margin-right: 35%;
+  margin-left: 35%;
   
   animation: morphTransition 0.2s ease-in-out forwards;
 

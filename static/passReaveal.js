@@ -8,12 +8,16 @@
         button.addEventListener('click' , ()=>{
             if (show){
                 pass.type="text";
+                if(pass1){
                 pass1.type="text";
+                }
                 button.innerText="😑";
                 show=false;
             }else{
                 pass.type="password";
+                if(pass1){
                 pass1.type="password";
+                }
                 button.innerText="🙂";
                 show=true;
             }

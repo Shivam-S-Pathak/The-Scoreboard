@@ -82,10 +82,9 @@ input[type="radio"]{
     justify-content: center;
     align-items: center;
     position: absolute;
-    top: 58.2%;
-    left: 44%;
+    top: 510px;
+    left: 350px;
     z-index: 2;
-    transform: translateY(-50%);
     height: 32px;
     width: 31px;
     background-color: #fff;
@@ -153,6 +152,8 @@ p{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    position: absolute;
+    top:150px;
     white-space: nowrap;
     font-size: 25px;
     padding: 1.5%;

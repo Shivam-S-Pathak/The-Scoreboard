@@ -19,7 +19,6 @@ urlpatterns = [
     path('student_login' , student_login, name='student_login'),
     path('service_page' , service, name='service'),
     path('update-notice' , update_notice, name='update_notice'),
-    path('forgot' , forgot , name='forgot'),
     re_path(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
     re_path(r'^.*/$', custom_404_page),
 ]

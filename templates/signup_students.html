@@ -23,14 +23,14 @@
             <div class="heading">
                 <p>Student Signup form</p>
             </div>
+            {% if messages %}
+            <div class="alert {% for message in messages %}{% if 'success' in message.tags %}alert-success{% elif 'error' in message.tags %}alert-danger{% endif %}{% endfor %}">
+                {% for message in messages %}
+                {{ message }}
+                {% endfor %}
+            </div>
+            {% endif %}
             <div class="input-container">
-                {% if messages %}
-                <div class="alert {% for message in messages %}{% if 'success' in message.tags %}alert-success{% elif 'error' in message.tags %}alert-danger{% endif %}{% endfor %}">
-                    {% for message in messages %}
-                    {{ message }}
-                    {% endfor %}
-                </div>
-                {% endif %}
                 <table>
                     <tbody>
                         <tr>

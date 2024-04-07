@@ -148,6 +148,8 @@ p{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    position: absolute;
+    top:150px;
     white-space: nowrap;
     font-size: 25px;
     padding: 1.5%;

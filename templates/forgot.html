@@ -33,17 +33,42 @@
                 <div class="input">
                     <label for="userlogin" class="new-pass">New password</label><br>
                     <span1></span1>
-                    <input type="password" id="userpass1" name="password" class="password1" required autofocus autocomplete="off"><br>
+                    <input type="password" id="userpass" name="password" class="password1" required autofocus autocomplete="off"><br>
                     <span3 class="passReavealBtn">🙂</span3>
                     <label for="userpass" class="pass-again">Password again</label><br>
                     <span2></span2>
-                    <input type="password" id="userpass" name="confirm_password" class="password2" required autocomplete="off"><br>
+                    <input type="password" id="userpass1" name="confirm_password" class="password2" required autocomplete="off"><br>
                     <button type="submit" class="btn">Submit change</button>
                 </div>
             </form>
         </section>
     </div>
-   <script src="static\passReaveal.js"></script>
+   <script>
+    
+    const button=document.querySelector(".passReavealBtn");
+        const pass = document.querySelector("#userpass");
+        const pass1 = document.querySelector("#userpass1");
+        let show = true;
+
+
+        button.addEventListener('click' , ()=>{
+            if (show){
+                pass.type="text";
+                if(pass1){
+                pass1.type="text";
+                }
+                button.innerText="😑";
+                show=false;
+            }else{
+                pass.type="password";
+                if(pass1){
+                pass1.type="password";
+                }
+                button.innerText="🙂";
+                show=true;
+            }
+        });
+   </script>
 </body>
 
 </html>

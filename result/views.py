@@ -250,7 +250,6 @@ def signup_students(request):
              return redirect("/student_login")
      except:
           return HttpResponse("Something went wrong try again")
-    
      return render(request, 'signup_students.html')
 
 
@@ -339,9 +338,6 @@ def update_notice(request):
           
 
 
-
-def forgot(request):
-     return render(request, 'forgot.html')
 
 def custom_404_page(request):
      return render(request , '404.html')
