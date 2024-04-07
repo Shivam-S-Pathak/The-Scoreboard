@@ -151,7 +151,7 @@ def datainput(request):
           else:
                return render(request, 'input_data.html')
 
-@login_required
+# @login_required
 def selection(request):
      if request.method=="POST":
           Course=request.POST.get('course')
