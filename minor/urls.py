@@ -24,6 +24,6 @@ admin.site.index_title = 'Welcome to SCOREBOARD Admin Portal'
 
 
 urlpatterns = [
-    path('shivam.SCOREBOARD/', admin.site.urls),
+    path('admin/', admin.site.urls),
     path('',include('result.urls')),
 ]
